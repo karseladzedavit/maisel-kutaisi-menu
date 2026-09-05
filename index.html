@@ -10,178 +10,201 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#16386B;
-  --navy-deep:#0F2A52;
+  --navy-deep:#0E2749;
   --blue:#2A6EBB;
   --silver:#C9CFD6;
-  --cream:#F8F6F1;
-  --card:#FFFFFF;
-  --gold:#E3B04B;
-  --hop:#8CA84A;
-  --red:#D0202C;
-  --ink:#1B2430;
-  --muted:#6E7885;
-  --rule:#E2DED4;
-  --maxw:760px;
+  --paper:#F6F2E9;
+  --paper-2:#EFEADE;
+  --gold:#C79A3E;
+  --ink:#232B36;
+  --muted:#797F88;
+  --rule:#D8D2C4;
+  --maxw:720px;
+  --bar:96px;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+
 body{
   margin:0;
-  background:var(--cream);
   color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
   font-family:"Noto Sans Georgian","Segoe UI",system-ui,-apple-system,sans-serif;
-  font-size:16px;
-  line-height:1.45;
+  font-size:16px;line-height:1.45;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
 
-/* ---------- header ---------- */
+/* ---------------- masthead ---------------- */
 .hero{
-  background:
-    radial-gradient(120% 90% at 50% -10%, #2A6EBB 0%, #16386B 45%, #0F2A52 100%);
-  color:#fff;
-  text-align:center;
-  padding:28px 20px 26px;
+  background:linear-gradient(180deg,#1B4179 0%,#16386B 40%,#0E2749 100%);
+  color:#fff;text-align:center;
+  padding:30px 20px 24px;
   position:relative;
-  overflow:hidden;
 }
 .hero::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
-  background:linear-gradient(90deg,var(--silver),#fff,var(--silver));
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--silver) 20%,#fff 50%,var(--silver) 80%,transparent);
 }
 .seal{
-  width:min(224px,62vw);margin:0 auto 16px;
-  background:#fff;border-radius:16px;padding:11px 13px;
-  box-shadow:0 8px 22px rgba(6,20,44,.35), 0 0 0 1px rgba(255,255,255,.45);
+  width:min(218px,60vw);margin:0 auto 18px;
+  background:#fff;border-radius:4px;padding:10px 12px;
+  box-shadow:0 10px 26px rgba(4,16,36,.42);
 }
-.seal img{width:100%;height:auto;display:block}
+.seal img{width:100%;height:auto}
 .seal.fallback{
-  width:118px;height:118px;padding:0;background:transparent;
+  width:112px;height:112px;padding:0;background:transparent;
   border-radius:50%;box-shadow:none;display:grid;place-items:center;
 }
 .brand{
-  font-family:"Noto Serif Georgian",Georgia,serif;
-  font-weight:700;
-  font-size:clamp(28px,8vw,40px);
-  letter-spacing:.01em;
-  margin:0;
-  line-height:1.1;
-  text-shadow:0 2px 0 rgba(0,0,0,.18);
+  font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;
+  font-size:clamp(27px,7.6vw,38px);letter-spacing:.015em;
+  margin:0;line-height:1.08;
 }
 .tagline{
-  margin:8px auto 0;max-width:30ch;
-  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-  color:#CBDCF3;font-weight:500;
+  margin:11px auto 0;max-width:32ch;
+  font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:#A9C3E4;font-weight:500;
 }
-.wheat{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px}
-.wheat span{height:1px;width:52px;background:linear-gradient(90deg,transparent,var(--silver))}
-.wheat span:last-child{background:linear-gradient(90deg,var(--silver),transparent)}
-.wheat svg{opacity:.9}
 
-/* ---------- sticky bar ---------- */
+/* ---------------- sticky tab strip ---------------- */
 .bar{
   position:sticky;top:0;z-index:50;
-  background:rgba(248,246,241,.97);
-  backdrop-filter:saturate(1.2) blur(8px);
+  background:rgba(246,242,233,.96);
+  backdrop-filter:saturate(1.1) blur(10px);
   border-bottom:1px solid var(--rule);
-  box-shadow:0 2px 10px rgba(22,56,107,.06);
 }
-.bar-inner{max-width:var(--maxw);margin:0 auto;padding:8px 12px 0;display:flex;align-items:center;gap:10px}
-.mini{display:flex;align-items:center;gap:8px;font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;color:var(--navy);font-size:15px;white-space:nowrap}
-.mini i{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:700;flex:none}
-.langs{margin-left:auto;display:flex;background:#fff;border:1px solid var(--silver);border-radius:999px;padding:2px;flex:none}
+.bar-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:9px 16px 0;display:flex;align-items:center;gap:10px;
+}
+.mini{
+  font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;
+  color:var(--navy);font-size:15px;letter-spacing:.02em;white-space:nowrap;
+}
+.langs{margin-left:auto;display:flex;gap:2px;flex:none}
 .langs button{
-  border:0;background:transparent;
-  padding:5px 9px;border-radius:999px;cursor:pointer;
-  line-height:0;transition:background .15s,opacity .15s,filter .15s;
+  border:0;background:transparent;padding:4px 7px;border-radius:3px;
+  cursor:pointer;line-height:0;transition:opacity .18s,filter .18s;
 }
 .langs button svg{
-  width:26px;height:17.5px;display:block;border-radius:2.5px;
-  box-shadow:0 0 0 1px rgba(22,56,107,.3);
+  width:25px;height:17px;display:block;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(22,56,107,.28);
 }
-.langs button[aria-pressed="false"]{opacity:.45;filter:saturate(.2)}
-.langs button[aria-pressed="true"]{background:var(--navy)}
-.langs button[aria-pressed="true"] svg{box-shadow:0 0 0 1px rgba(255,255,255,.75)}
+.langs button[aria-pressed="false"]{opacity:.4;filter:saturate(.15)}
+.langs button[aria-pressed="true"] svg{box-shadow:0 0 0 1px rgba(22,56,107,.55),0 1px 3px rgba(0,0,0,.18)}
 
-.chips{max-width:var(--maxw);margin:0 auto;display:flex;gap:7px;overflow-x:auto;padding:8px 12px 10px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chips a{
-  flex:none;text-decoration:none;white-space:nowrap;
-  font-size:13px;font-weight:600;color:var(--navy);
-  background:#fff;border:1px solid var(--silver);
-  padding:6px 13px;border-radius:999px;
-  transition:background .15s,color .15s,border-color .15s;
+.tabs{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;gap:20px;overflow-x:auto;
+  padding:6px 16px 0;scrollbar-width:none;
 }
-.chips a.on{background:var(--navy);border-color:var(--navy);color:#fff}
-
-/* ---------- sections ---------- */
-main{max-width:var(--maxw);margin:0 auto;padding:18px 12px 40px}
-section{scroll-margin-top:104px;margin-bottom:26px}
-.head{
-  background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
-  color:#fff;border-radius:999px;
-  padding:9px 20px;
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{
+  flex:none;white-space:nowrap;text-decoration:none;
   font-family:"Noto Serif Georgian",Georgia,serif;
-  font-weight:700;font-size:17px;letter-spacing:.02em;
-  display:inline-block;
-  box-shadow:0 2px 0 rgba(201,207,214,.9), 0 6px 14px rgba(22,56,107,.16);
+  font-size:13.5px;font-weight:600;letter-spacing:.05em;
+  color:#8A8F97;padding:7px 0 9px;
+  border-bottom:2px solid transparent;
+  transition:color .18s,border-color .18s;
 }
-.card{
-  background:var(--card);
-  border:1px solid var(--rule);
-  border-radius:14px;
-  margin-top:12px;
-  padding:4px 14px;
-  box-shadow:0 1px 2px rgba(27,36,48,.04);
+.tabs a.on{color:var(--navy);border-bottom-color:var(--navy)}
+
+/* ---------------- menu body ---------------- */
+main{max-width:var(--maxw);margin:0 auto;padding:6px 22px 44px}
+section{scroll-margin-top:var(--bar)}
+
+.head{text-align:center;margin:38px 0 6px}
+section:first-child .head{margin-top:26px}
+.orn{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:10px}
+.orn i{display:block;height:1px;width:52px}
+.orn i:first-child{background:linear-gradient(90deg,transparent,var(--rule))}
+.orn i:last-child{background:linear-gradient(90deg,var(--rule),transparent)}
+.orn b{display:block;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.head h2{
+  margin:0;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:clamp(19px,5vw,23px);
+  color:var(--navy);letter-spacing:.045em;line-height:1.25;
 }
-.row{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dotted var(--rule)}
+
+.list{margin-top:14px}
+.row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(216,210,196,.6);
+}
 .row:last-child{border-bottom:0}
-.nm{flex:1;min-width:0;font-weight:500}
-.nm small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:1px}
+.nm{
+  flex:1;min-width:0;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:16px;font-weight:400;line-height:1.35;
+}
+.nm small{
+  display:block;font-family:"Noto Sans Georgian",sans-serif;
+  font-weight:400;font-size:12.5px;color:var(--muted);
+  margin-top:2px;letter-spacing:.01em;
+}
 .pr{flex:none;text-align:right;font-variant-numeric:tabular-nums}
-.pr b{font-weight:700;color:var(--navy);font-size:15.5px}
-.pr .sz{font-size:11px;color:var(--muted);letter-spacing:.03em;margin-right:5px}
-.pr div+div{margin-top:2px}
-.pr .lari{font-size:12px;color:var(--blue);margin-left:2px}
+.pr div+div{margin-top:3px}
+.pr b{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:15.5px;color:var(--navy);
+}
+.pr .sz{font-size:10.5px;color:var(--muted);letter-spacing:.06em;margin-right:6px;text-transform:uppercase}
+.pr .lari{font-size:11.5px;color:var(--gold);margin-left:3px}
 
-/* highlight the house beers */
-#draft .card{border-color:var(--silver);background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FD 100%)}
+/* the house beers get a warm tint, nothing boxy */
+#draft .list{
+  background:linear-gradient(180deg,rgba(199,154,62,.07),rgba(199,154,62,0));
+  padding:2px 12px;margin-left:-12px;margin-right:-12px;border-radius:2px;
+}
 
+/* ---------------- footer ---------------- */
 footer{
-  background:var(--navy-deep);color:#C6D6EE;text-align:center;
-  padding:26px 20px 34px;font-size:13.5px;line-height:1.7;
+  background:var(--navy-deep);color:#B9CCE6;text-align:center;
+  padding:30px 22px 38px;font-size:13.5px;line-height:1.75;
 }
-footer .fb{font-family:"Noto Serif Georgian",Georgia,serif;color:#fff;font-size:19px;font-weight:700;margin-bottom:6px}
-footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
-footer .contact{margin:16px auto 0;max-width:34ch}
+footer .fb{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
+}
+footer .forn{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 12px}
+footer .forn i{height:1px;width:40px;background:rgba(201,207,214,.4)}
+footer .forn b{width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
 footer .contact div{margin:3px 0}
-footer .socials{margin-top:12px;display:flex;gap:10px;justify-content:center}
+footer .socials{margin-top:14px;display:flex;gap:9px;justify-content:center}
 footer .socials a{
-  border:1px solid rgba(255,255,255,.4);border-radius:999px;
-  padding:5px 15px;font-size:12.5px;font-weight:600;
+  border:1px solid rgba(255,255,255,.35);border-radius:2px;
+  padding:6px 16px;font-size:12.5px;font-weight:600;letter-spacing:.04em;
 }
-footer .fine{margin-top:18px;font-size:12px;color:#8FA8CC}
+footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC}
+
 .top{
-  position:fixed;right:14px;bottom:14px;z-index:60;
-  width:44px;height:44px;border-radius:50%;
-  background:var(--navy);color:#fff;border:2px solid #fff;
-  box-shadow:0 4px 14px rgba(15,42,82,.35);
-  display:grid;place-items:center;font-size:18px;cursor:pointer;
-  opacity:0;pointer-events:none;transition:opacity .2s;
+  position:fixed;right:16px;bottom:16px;z-index:60;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 5px 16px rgba(14,39,73,.4);
+  display:grid;place-items:center;font-size:17px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity .25s;
 }
 .top.show{opacity:1;pointer-events:auto}
+
 @media (min-width:640px){
+  main{padding:6px 28px 52px}
+  .nm{font-size:17px}
   .row{padding:12px 0}
-  .card{padding:6px 20px}
-  .head{font-size:19px;padding:10px 24px}
 }
 @media print{
-  .bar,.top,.hero::after{display:none}
+  .bar,.top{display:none}
   body{background:#fff}
   section{break-inside:avoid}
 }
@@ -193,19 +216,11 @@ footer .fine{margin-top:18px;font-size:12px;color:#8FA8CC}
   <div class="seal" id="seal"></div>
   <h1 class="brand">Maisel Kutaisi</h1>
   <p class="tagline" data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></p>
-  <div class="wheat">
-    <span></span>
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3B04B" stroke-width="1.6" stroke-linecap="round">
-      <path d="M12 21V9"/><path d="M12 12c-3 0-4-2-4-4 3 0 4 2 4 4z"/><path d="M12 12c3 0 4-2 4-4-3 0-4 2-4 4z"/>
-      <path d="M12 8c-2.4 0-3.2-1.7-3.2-3.4C11.2 4.6 12 6.3 12 8z"/><path d="M12 8c2.4 0 3.2-1.7 3.2-3.4C12.8 4.6 12 6.3 12 8z"/>
-    </svg>
-    <span></span>
-  </div>
 </header>
 
 <nav class="bar">
   <div class="bar-inner">
-    <div class="mini"><i>M</i><span>Maisel Kutaisi</span></div>
+    <div class="mini">Maisel Kutaisi</div>
     <div class="langs" role="group" aria-label="Language / ენა">
       <button type="button" id="btn-ka" aria-pressed="true" aria-label="ქართული" title="ქართული">
         <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -232,16 +247,17 @@ footer .fine{margin-top:18px;font-size:12px;color:#8FA8CC}
       </button>
     </div>
   </div>
-  <div class="chips" id="chips"></div>
+  <div class="tabs" id="tabs"></div>
 </nav>
 
 <main id="menu"></main>
 
 <footer>
   <div class="fb">Maisel Kutaisi</div>
+  <div class="forn"><i></i><b></b><i></i></div>
   <div data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></div>
   <div class="contact" id="contact"></div>
-  <div class="fine" data-ka="ფასები მოცემულია ლარში." data-en="All prices are in Georgian Lari."></div>
+  <div class="fine" data-ka="ფასები მოცემულია ლარში" data-en="All prices in Georgian Lari"></div>
 </footer>
 
 <button class="top" id="top" aria-label="Back to top">&uarr;</button>
@@ -265,26 +281,29 @@ var SITE = {
   var lang = "ka";
   try { lang = localStorage.getItem("mk-lang") || "ka"; } catch(e){}
 
-  var menuEl  = document.getElementById("menu");
-  var chipsEl = document.getElementById("chips");
+  var menuEl = document.getElementById("menu");
+  var tabsEl = document.getElementById("tabs");
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
   function priceHTML(pairs){
     return pairs.map(function(pair){
-      var size = pair[0], val = pair[1];
-      var sz = size ? '<span class="sz">' + esc(size) + '</span>' : '';
-      return '<div>' + sz + '<b>' + esc(val) + '</b><span class="lari">&#8382;</span></div>';
+      var sz = pair[0] ? '<span class="sz">' + esc(pair[0]) + '</span>' : '';
+      return '<div>' + sz + '<b>' + esc(pair[1]) + '</b><span class="lari">&#8382;</span></div>';
     }).join("");
   }
 
-  // build sections + chips once; language swaps text in place
-  var html = "", chips = "";
+  var html = "", tabs = "";
   MENU.forEach(function(sec){
-    chips += '<a href="#' + sec.id + '" data-jump="' + sec.id + '"><span data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></span></a>';
+    tabs += '<a href="#' + sec.id + '" data-jump="' + sec.id + '">'
+          +   '<span data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></span>'
+          + '</a>';
     html += '<section id="' + sec.id + '">'
-          +   '<div class="head" data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></div>'
-          +   '<div class="card">';
+          +   '<div class="head">'
+          +     '<div class="orn"><i></i><b></b><i></i></div>'
+          +     '<h2 data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></h2>'
+          +   '</div>'
+          +   '<div class="list">';
     sec.items.forEach(function(it){
       var note = (it.nka || it.nen)
         ? '<small data-ka="' + esc(it.nka || it.nen) + '" data-en="' + esc(it.nen || it.nka) + '"></small>'
@@ -297,7 +316,7 @@ var SITE = {
     html += '</div></section>';
   });
   menuEl.innerHTML = html;
-  chipsEl.innerHTML = chips;
+  tabsEl.innerHTML = tabs;
 
   function applyLang(l){
     lang = l;
@@ -328,34 +347,64 @@ var SITE = {
     if (SITE.instagram) s += '<a href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
     if (s) c += '<div class="socials">' + s + '</div>';
     document.getElementById("contact").innerHTML = c;
-    applyLang(lang); // the block was added after the first pass
+    applyLang(lang); // this block was added after the first pass
   })();
 
-  // active chip follows the section in view
+  /* ---- smooth scrolling + the tab strip following along ---- */
   var links = {};
-  Array.prototype.forEach.call(chipsEl.querySelectorAll("a"), function(a){ links[a.dataset.jump] = a; });
+  Array.prototype.forEach.call(tabsEl.querySelectorAll("a"), function(a){ links[a.dataset.jump] = a; });
+
+  var navLock = 0; // while a tap-driven scroll is in flight, the strip stays put
+
+  function setActive(id, autoCentre){
+    for (var k in links) links[k].classList.remove("on");
+    var a = links[id];
+    if (!a) return;
+    a.classList.add("on");
+    if (autoCentre) a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+  }
+
+  tabsEl.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-jump]");
+    if (!a) return;
+    e.preventDefault();
+    var id = a.dataset.jump;
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    navLock = Date.now() + 900;
+    setActive(id, false);
+    a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+
+    var bar = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bar"), 10) || 96;
+    var y = target.getBoundingClientRect().top + window.pageYOffset - bar;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    history.replaceState(null, "", "#" + id);
+  });
+
   if (window.IntersectionObserver){
     var io = new IntersectionObserver(function(entries){
+      if (Date.now() < navLock) return;
       entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        for (var k in links) links[k].classList.remove("on");
-        var a = links[en.target.id];
-        if (!a) return;
-        a.classList.add("on");
-        a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+        if (en.isIntersecting) setActive(en.target.id, true);
       });
-    }, { rootMargin: "-110px 0px -70% 0px", threshold: 0 });
+    }, { rootMargin: "-" + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bar"),10) + 10) + "px 0px -68% 0px", threshold: 0 });
     Array.prototype.forEach.call(document.querySelectorAll("section"), function(s){ io.observe(s); });
   }
 
-  // back to top
+  // back to top: only while scrolling up, so it never covers a price
   var topBtn = document.getElementById("top");
   topBtn.onclick = function(){ window.scrollTo({top:0, behavior:"smooth"}); };
+  var lastY = window.scrollY;
   window.addEventListener("scroll", function(){
-    topBtn.classList.toggle("show", window.scrollY > 600);
+    var y = window.scrollY;
+    if (Math.abs(y - lastY) > 4){
+      topBtn.classList.toggle("show", y < lastY && y > 700);
+      lastY = y;
+    }
   }, {passive:true});
 
-  // use logo.jpg if the file is present, otherwise draw a seal
+  // real logo if present, drawn seal as a fallback
   var seal = document.getElementById("seal");
   var probe = new Image();
   probe.onload = function(){
@@ -364,12 +413,10 @@ var SITE = {
   probe.onerror = function(){
     seal.className = "seal fallback";
     seal.innerHTML =
-      '<svg viewBox="0 0 120 120" width="118" height="118" role="img" aria-label="Maisel Kutaisi">'
-      + '<circle cx="60" cy="60" r="57" fill="#fff" stroke="#C9CFD6" stroke-width="5"/>'
+      '<svg viewBox="0 0 120 120" width="112" height="112" role="img" aria-label="Maisel Kutaisi">'
+      + '<circle cx="60" cy="60" r="57" fill="#fff" stroke="#C9CFD6" stroke-width="4"/>'
       + '<circle cx="60" cy="60" r="48" fill="none" stroke="#16386B" stroke-width="2"/>'
-      + '<path d="M60 26 L64.5 39 L78 39 L67 47 L71 60 L60 52 L49 60 L53 47 L42 39 L55.5 39 Z" fill="#D0202C"/>'
-      + '<text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="700" fill="#16386B">MK</text>'
-      + '<text x="60" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" letter-spacing="1.6" fill="#6E7885">KUTAISI</text>'
+      + '<text x="60" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#16386B">MK</text>'
       + '</svg>';
   };
   probe.src = "logo.jpg";
