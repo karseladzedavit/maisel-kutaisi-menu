@@ -96,11 +96,17 @@ img{max-width:100%;display:block}
 .mini i{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:700;flex:none}
 .langs{margin-left:auto;display:flex;background:#fff;border:1px solid var(--silver);border-radius:999px;padding:2px;flex:none}
 .langs button{
-  border:0;background:transparent;color:var(--navy);
-  font:inherit;font-size:13px;font-weight:600;
-  padding:5px 12px;border-radius:999px;cursor:pointer;
+  border:0;background:transparent;
+  padding:5px 9px;border-radius:999px;cursor:pointer;
+  line-height:0;transition:background .15s,opacity .15s,filter .15s;
 }
-.langs button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.langs button svg{
+  width:26px;height:17.5px;display:block;border-radius:2.5px;
+  box-shadow:0 0 0 1px rgba(22,56,107,.3);
+}
+.langs button[aria-pressed="false"]{opacity:.45;filter:saturate(.2)}
+.langs button[aria-pressed="true"]{background:var(--navy)}
+.langs button[aria-pressed="true"] svg{box-shadow:0 0 0 1px rgba(255,255,255,.75)}
 
 .chips{max-width:var(--maxw);margin:0 auto;display:flex;gap:7px;overflow-x:auto;padding:8px 12px 10px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
@@ -200,9 +206,30 @@ footer .fine{margin-top:18px;font-size:12px;color:#8FA8CC}
 <nav class="bar">
   <div class="bar-inner">
     <div class="mini"><i>M</i><span>Maisel Kutaisi</span></div>
-    <div class="langs" role="group" aria-label="Language">
-      <button type="button" id="btn-ka" aria-pressed="true">ქარ</button>
-      <button type="button" id="btn-en" aria-pressed="false">ENG</button>
+    <div class="langs" role="group" aria-label="Language / ენა">
+      <button type="button" id="btn-ka" aria-pressed="true" aria-label="ქართული" title="ქართული">
+        <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="300" height="200" fill="#fff"/>
+          <g fill="#FF0000">
+            <rect x="130" y="0" width="40" height="200"/>
+            <rect x="0" y="80" width="300" height="40"/>
+            <path d="M58,27h14v16h16v14H72v16H58V57H42V43h16z"/>
+            <path d="M228,27h14v16h16v14h-16v16h-14V57h-16V43h16z"/>
+            <path d="M58,127h14v16h16v14H72v16H58v-16H42v-14h16z"/>
+            <path d="M228,127h14v16h16v14h-16v16h-14v-16h-16v-14h16z"/>
+          </g>
+        </svg>
+      </button>
+      <button type="button" id="btn-en" aria-pressed="false" aria-label="English" title="English">
+        <svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <clipPath id="uk-diag"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-diag)" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </button>
     </div>
   </div>
   <div class="chips" id="chips"></div>
