@@ -194,11 +194,10 @@ footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC
 
 .top{
   position:fixed;right:16px;bottom:16px;z-index:60;
-  width:40px;height:40px;border-radius:50%;
+  width:42px;height:42px;border-radius:50%;
   background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.7);
-  /* the paper-coloured halo keeps it legible where it passes over a row */
-  box-shadow:0 0 0 7px rgba(246,242,233,.82), 0 5px 16px rgba(14,39,73,.35);
-  display:grid;place-items:center;font-size:16px;cursor:pointer;
+  box-shadow:0 5px 16px rgba(14,39,73,.4);
+  display:grid;place-items:center;font-size:17px;cursor:pointer;
   opacity:0;pointer-events:none;transition:opacity .25s;
 }
 .top.show{opacity:1;pointer-events:auto}
@@ -416,12 +415,17 @@ var SITE = {
     Array.prototype.forEach.call(document.querySelectorAll("section"), function(s){ io.observe(s); });
   }
 
-  // back to top: visible as soon as the masthead is out of the way
+  // back to top: only while scrolling up, so it never covers a price
   var topBtn = document.getElementById("top");
   topBtn.onclick = function(){ window.scrollTo({top:0, behavior:"smooth"}); };
-  function toggleTop(){ topBtn.classList.toggle("show", window.scrollY > 500); }
-  window.addEventListener("scroll", toggleTop, {passive:true});
-  toggleTop();
+  var lastY = window.scrollY;
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if (Math.abs(y - lastY) > 4){
+      topBtn.classList.toggle("show", y < lastY && y > 700);
+      lastY = y;
+    }
+  }, {passive:true});
 
   // real logo if present, drawn seal as a fallback
   var seal = document.getElementById("seal");
