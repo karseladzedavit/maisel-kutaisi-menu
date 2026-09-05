@@ -6,6 +6,8 @@
 <title>Maisel Kutaisi - მენიუ / Menu</title>
 <meta name="description" content="Maisel Kutaisi - სრული მენიუ / full menu. Bavarian beer, Georgian kitchen. Kutaisi.">
 <meta name="theme-color" content="#16386B">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@600;700&display=swap" rel="stylesheet">
@@ -52,8 +54,16 @@ img{max-width:100%;display:block}
   content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
   background:linear-gradient(90deg,var(--silver),#fff,var(--silver));
 }
-.seal{width:118px;height:118px;margin:0 auto 12px;display:block}
-.seal img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.seal{
+  width:min(224px,62vw);margin:0 auto 16px;
+  background:#fff;border-radius:16px;padding:11px 13px;
+  box-shadow:0 8px 22px rgba(6,20,44,.35), 0 0 0 1px rgba(255,255,255,.45);
+}
+.seal img{width:100%;height:auto;display:block}
+.seal.fallback{
+  width:118px;height:118px;padding:0;background:transparent;
+  border-radius:50%;box-shadow:none;display:grid;place-items:center;
+}
 .brand{
   font-family:"Noto Serif Georgian",Georgia,serif;
   font-weight:700;
@@ -318,11 +328,14 @@ var SITE = {
     topBtn.classList.toggle("show", window.scrollY > 600);
   }, {passive:true});
 
-  // use logo.png if the file is present, otherwise draw a seal
+  // use logo.jpg if the file is present, otherwise draw a seal
   var seal = document.getElementById("seal");
   var probe = new Image();
-  probe.onload = function(){ seal.innerHTML = '<img src="logo.png" alt="Maisel Kutaisi">'; };
+  probe.onload = function(){
+    seal.innerHTML = '<img src="logo.jpg" width="700" height="589" alt="Maisel\'s Weisse aus Bayreuth">';
+  };
   probe.onerror = function(){
+    seal.className = "seal fallback";
     seal.innerHTML =
       '<svg viewBox="0 0 120 120" width="118" height="118" role="img" aria-label="Maisel Kutaisi">'
       + '<circle cx="60" cy="60" r="57" fill="#fff" stroke="#C9CFD6" stroke-width="5"/>'
@@ -332,7 +345,7 @@ var SITE = {
       + '<text x="60" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" letter-spacing="1.6" fill="#6E7885">KUTAISI</text>'
       + '</svg>';
   };
-  probe.src = "logo.png";
+  probe.src = "logo.jpg";
 })();
 </script>
 </body>
