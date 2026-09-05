@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maisel Kutaisi - მენიუ / Menu</title>
+<meta name="description" content="Maisel Kutaisi - სრული მენიუ / full menu. Bavarian beer, Georgian kitchen. Kutaisi.">
+<meta name="theme-color" content="#16386B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16386B;
+  --navy-deep:#0F2A52;
+  --blue:#2A6EBB;
+  --silver:#C9CFD6;
+  --cream:#F8F6F1;
+  --card:#FFFFFF;
+  --gold:#E3B04B;
+  --hop:#8CA84A;
+  --red:#D0202C;
+  --ink:#1B2430;
+  --muted:#6E7885;
+  --rule:#E2DED4;
+  --maxw:760px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+
+/* ---------- header ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 50% -10%, #2A6EBB 0%, #16386B 45%, #0F2A52 100%);
+  color:#fff;
+  text-align:center;
+  padding:28px 20px 26px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--silver),#fff,var(--silver));
+}
+.seal{width:118px;height:118px;margin:0 auto 12px;display:block}
+.seal img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.brand{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;
+  font-size:clamp(28px,8vw,40px);
+  letter-spacing:.01em;
+  margin:0;
+  line-height:1.1;
+  text-shadow:0 2px 0 rgba(0,0,0,.18);
+}
+.tagline{
+  margin:8px auto 0;max-width:30ch;
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:#CBDCF3;font-weight:500;
+}
+.wheat{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px}
+.wheat span{height:1px;width:52px;background:linear-gradient(90deg,transparent,var(--silver))}
+.wheat span:last-child{background:linear-gradient(90deg,var(--silver),transparent)}
+.wheat svg{opacity:.9}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,246,241,.97);
+  backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid var(--rule);
+  box-shadow:0 2px 10px rgba(22,56,107,.06);
+}
+.bar-inner{max-width:var(--maxw);margin:0 auto;padding:8px 12px 0;display:flex;align-items:center;gap:10px}
+.mini{display:flex;align-items:center;gap:8px;font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;color:var(--navy);font-size:15px;white-space:nowrap}
+.mini i{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:700;flex:none}
+.langs{margin-left:auto;display:flex;background:#fff;border:1px solid var(--silver);border-radius:999px;padding:2px;flex:none}
+.langs button{
+  border:0;background:transparent;color:var(--navy);
+  font:inherit;font-size:13px;font-weight:600;
+  padding:5px 12px;border-radius:999px;cursor:pointer;
+}
+.langs button[aria-pressed="true"]{background:var(--navy);color:#fff}
+
+.chips{max-width:var(--maxw);margin:0 auto;display:flex;gap:7px;overflow-x:auto;padding:8px 12px 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{
+  flex:none;text-decoration:none;white-space:nowrap;
+  font-size:13px;font-weight:600;color:var(--navy);
+  background:#fff;border:1px solid var(--silver);
+  padding:6px 13px;border-radius:999px;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.chips a.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ---------- sections ---------- */
+main{max-width:var(--maxw);margin:0 auto;padding:18px 12px 40px}
+section{scroll-margin-top:104px;margin-bottom:26px}
+.head{
+  background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:#fff;border-radius:999px;
+  padding:9px 20px;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:17px;letter-spacing:.02em;
+  display:inline-block;
+  box-shadow:0 2px 0 rgba(201,207,214,.9), 0 6px 14px rgba(22,56,107,.16);
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  margin-top:12px;
+  padding:4px 14px;
+  box-shadow:0 1px 2px rgba(27,36,48,.04);
+}
+.row{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dotted var(--rule)}
+.row:last-child{border-bottom:0}
+.nm{flex:1;min-width:0;font-weight:500}
+.nm small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:1px}
+.pr{flex:none;text-align:right;font-variant-numeric:tabular-nums}
+.pr b{font-weight:700;color:var(--navy);font-size:15.5px}
+.pr .sz{font-size:11px;color:var(--muted);letter-spacing:.03em;margin-right:5px}
+.pr div+div{margin-top:2px}
+.pr .lari{font-size:12px;color:var(--blue);margin-left:2px}
+
+/* highlight the house beers */
+#draft .card{border-color:var(--silver);background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FD 100%)}
+
+footer{
+  background:var(--navy-deep);color:#C6D6EE;text-align:center;
+  padding:26px 20px 34px;font-size:13.5px;line-height:1.7;
+}
+footer .fb{font-family:"Noto Serif Georgian",Georgia,serif;color:#fff;font-size:19px;font-weight:700;margin-bottom:6px}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+footer .contact{margin:16px auto 0;max-width:34ch}
+footer .contact div{margin:3px 0}
+footer .socials{margin-top:12px;display:flex;gap:10px;justify-content:center}
+footer .socials a{
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;
+  padding:5px 15px;font-size:12.5px;font-weight:600;
+}
+footer .fine{margin-top:18px;font-size:12px;color:#8FA8CC}
+.top{
+  position:fixed;right:14px;bottom:14px;z-index:60;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy);color:#fff;border:2px solid #fff;
+  box-shadow:0 4px 14px rgba(15,42,82,.35);
+  display:grid;place-items:center;font-size:18px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.top.show{opacity:1;pointer-events:auto}
+@media (min-width:640px){
+  .row{padding:12px 0}
+  .card{padding:6px 20px}
+  .head{font-size:19px;padding:10px 24px}
+}
+@media print{
+  .bar,.top,.hero::after{display:none}
+  body{background:#fff}
+  section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal" id="seal"></div>
+  <h1 class="brand">Maisel Kutaisi</h1>
+  <p class="tagline" data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></p>
+  <div class="wheat">
+    <span></span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3B04B" stroke-width="1.6" stroke-linecap="round">
+      <path d="M12 21V9"/><path d="M12 12c-3 0-4-2-4-4 3 0 4 2 4 4z"/><path d="M12 12c3 0 4-2 4-4-3 0-4 2-4 4z"/>
+      <path d="M12 8c-2.4 0-3.2-1.7-3.2-3.4C11.2 4.6 12 6.3 12 8z"/><path d="M12 8c2.4 0 3.2-1.7 3.2-3.4C12.8 4.6 12 6.3 12 8z"/>
+    </svg>
+    <span></span>
+  </div>
+</header>
+
+<nav class="bar">
+  <div class="bar-inner">
+    <div class="mini"><i>M</i><span>Maisel Kutaisi</span></div>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" id="btn-ka" aria-pressed="true">ქარ</button>
+      <button type="button" id="btn-en" aria-pressed="false">ENG</button>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+</nav>
+
+<main id="menu"></main>
+
+<footer>
+  <div class="fb">Maisel Kutaisi</div>
+  <div data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></div>
+  <div class="contact" id="contact"></div>
+  <div class="fine" data-ka="ფასები მოცემულია ლარში." data-en="All prices are in Georgian Lari."></div>
+</footer>
+
+<button class="top" id="top" aria-label="Back to top">&uarr;</button>
+
+<script src="menu-data.js"></script>
+<script>
+/* ------------------------------------------------------------------
+   CONTACT DETAILS - fill these in, empty values are simply not shown.
+   ------------------------------------------------------------------ */
+var SITE = {
+  addressKa: "",              // e.g. "ქუთაისი, თამარ მეფის ქ. N13"
+  addressEn: "",              // e.g. "13 Tamar Mepe St, Kutaisi"
+  phone:     "",              // e.g. "+995 555 12 34 56"
+  hoursKa:   "",              // e.g. "ყოველდღე 12:00 - 02:00"
+  hoursEn:   "",              // e.g. "Daily 12:00 - 02:00"
+  facebook:  "",              // full https:// link
+  instagram: ""               // full https:// link
+};
+
+(function(){
+  var lang = "ka";
+  try { lang = localStorage.getItem("mk-lang") || "ka"; } catch(e){}
+
+  var menuEl  = document.getElementById("menu");
+  var chipsEl = document.getElementById("chips");
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function priceHTML(pairs){
+    return pairs.map(function(pair){
+      var size = pair[0], val = pair[1];
+      var sz = size ? '<span class="sz">' + esc(size) + '</span>' : '';
+      return '<div>' + sz + '<b>' + esc(val) + '</b><span class="lari">&#8382;</span></div>';
+    }).join("");
+  }
+
+  // build sections + chips once; language swaps text in place
+  var html = "", chips = "";
+  MENU.forEach(function(sec){
+    chips += '<a href="#' + sec.id + '" data-jump="' + sec.id + '"><span data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></span></a>';
+    html += '<section id="' + sec.id + '">'
+          +   '<div class="head" data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></div>'
+          +   '<div class="card">';
+    sec.items.forEach(function(it){
+      var note = (it.nka || it.nen)
+        ? '<small data-ka="' + esc(it.nka || it.nen) + '" data-en="' + esc(it.nen || it.nka) + '"></small>'
+        : '';
+      html += '<div class="row">'
+            +   '<div class="nm"><span data-ka="' + esc(it.ka) + '" data-en="' + esc(it.en) + '"></span>' + note + '</div>'
+            +   '<div class="pr">' + priceHTML(it.p) + '</div>'
+            + '</div>';
+    });
+    html += '</div></section>';
+  });
+  menuEl.innerHTML = html;
+  chipsEl.innerHTML = chips;
+
+  function applyLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    var nodes = document.querySelectorAll("[data-ka]");
+    for (var i = 0; i < nodes.length; i++){
+      nodes[i].innerHTML = nodes[i].getAttribute("data-" + l) || "";
+    }
+    document.getElementById("btn-ka").setAttribute("aria-pressed", l === "ka");
+    document.getElementById("btn-en").setAttribute("aria-pressed", l === "en");
+    try { localStorage.setItem("mk-lang", l); } catch(e){}
+  }
+  document.getElementById("btn-ka").onclick = function(){ applyLang("ka"); };
+  document.getElementById("btn-en").onclick = function(){ applyLang("en"); };
+  applyLang(lang);
+
+  // contact block: only the fields that were filled in
+  (function(){
+    var c = "";
+    if (SITE.addressKa || SITE.addressEn)
+      c += '<div data-ka="' + esc(SITE.addressKa || SITE.addressEn) + '" data-en="' + esc(SITE.addressEn || SITE.addressKa) + '"></div>';
+    if (SITE.phone)
+      c += '<div><a href="tel:' + esc(SITE.phone.replace(/[^+\d]/g, "")) + '">' + esc(SITE.phone) + '</a></div>';
+    if (SITE.hoursKa || SITE.hoursEn)
+      c += '<div data-ka="' + esc(SITE.hoursKa || SITE.hoursEn) + '" data-en="' + esc(SITE.hoursEn || SITE.hoursKa) + '"></div>';
+    var s = "";
+    if (SITE.facebook)  s += '<a href="' + esc(SITE.facebook)  + '" target="_blank" rel="noopener">Facebook</a>';
+    if (SITE.instagram) s += '<a href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
+    if (s) c += '<div class="socials">' + s + '</div>';
+    document.getElementById("contact").innerHTML = c;
+    applyLang(lang); // the block was added after the first pass
+  })();
+
+  // active chip follows the section in view
+  var links = {};
+  Array.prototype.forEach.call(chipsEl.querySelectorAll("a"), function(a){ links[a.dataset.jump] = a; });
+  if (window.IntersectionObserver){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        for (var k in links) links[k].classList.remove("on");
+        var a = links[en.target.id];
+        if (!a) return;
+        a.classList.add("on");
+        a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+      });
+    }, { rootMargin: "-110px 0px -70% 0px", threshold: 0 });
+    Array.prototype.forEach.call(document.querySelectorAll("section"), function(s){ io.observe(s); });
+  }
+
+  // back to top
+  var topBtn = document.getElementById("top");
+  topBtn.onclick = function(){ window.scrollTo({top:0, behavior:"smooth"}); };
+  window.addEventListener("scroll", function(){
+    topBtn.classList.toggle("show", window.scrollY > 600);
+  }, {passive:true});
+
+  // use logo.png if the file is present, otherwise draw a seal
+  var seal = document.getElementById("seal");
+  var probe = new Image();
+  probe.onload = function(){ seal.innerHTML = '<img src="logo.png" alt="Maisel Kutaisi">'; };
+  probe.onerror = function(){
+    seal.innerHTML =
+      '<svg viewBox="0 0 120 120" width="118" height="118" role="img" aria-label="Maisel Kutaisi">'
+      + '<circle cx="60" cy="60" r="57" fill="#fff" stroke="#C9CFD6" stroke-width="5"/>'
+      + '<circle cx="60" cy="60" r="48" fill="none" stroke="#16386B" stroke-width="2"/>'
+      + '<path d="M60 26 L64.5 39 L78 39 L67 47 L71 60 L60 52 L49 60 L53 47 L42 39 L55.5 39 Z" fill="#D0202C"/>'
+      + '<text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="700" fill="#16386B">MK</text>'
+      + '<text x="60" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" letter-spacing="1.6" fill="#6E7885">KUTAISI</text>'
+      + '</svg>';
+  };
+  probe.src = "logo.png";
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* Maisel Kutaisi - menu data.
+   Edit items and prices here; the page rebuilds itself from this file.
+   p: [["size","price"], ...]  - a single pair with an empty size shows just the price. */
+const MENU = [
+{id:"draft", ka:"ჩამოსასხმელი ლუდი", en:"Draft Beer", items:[
+ {ka:"მაისელს ვაისე ორიგინალი", en:"Maisel's Weisse Original", nka:"გაუფილტრავი", nen:"Unfiltered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
+ {ka:"ბაირაითერ ჰელი", en:"Bayreuther Hell", nka:"გაფილტრული", nen:"Filtered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
+ {ka:"შლენკერლა შმოქბიერი", en:"Schlenkerla Smokebeer", nka:"მუქი", nen:"Dark Beer", p:[["0.4L","8.90"]]}
+]},
+{id:"beersnacks", ka:"ლუდის მენიუ", en:"Beer Menu", items:[
+ {ka:"ბავარიული სოსისების დაფა", en:"Sausage Bavarian Platter", p:[["","124.50"]]},
+ {ka:"სოსისი ბეკონით", en:"Bacon-Wrapped Sausage", p:[["","49.50"]]},
+ {ka:"ღორის ბარკალი ბავარიულად", en:"Bavarian Pork Knuckle", p:[["","68.50"]]},
+ {ka:"ქათმის ფრთები ბარბექიუს სოუსით", en:"Chicken Wings with Barbecue Sauce", p:[["","19.50"]]},
+ {ka:"ქათმის ფრთები ცხარე სოუსით", en:"Chicken Wings with Spicy Sauce", p:[["","18.50"]]},
+ {ka:"ნივრიანი პური", en:"Garlic Bread", p:[["","7.50"]]},
+ {ka:"სულგუნის ჩხირები", en:"Sulguni Cheese Sticks", p:[["","15.50"]]},
+ {ka:"ხახვის რგოლები", en:"Onion Rings", p:[["","9.50"]]},
+ {ka:"ქართული თხილი", en:"Georgian Hazelnuts", p:[["","9.50"]]},
+ {ka:"ფისტა", en:"Pistachios", p:[["","13.50"]]},
+ {ka:"მიწისთხილი", en:"Peanut", p:[["","4.50"]]},
+ {ka:"ნუში", en:"Almond", p:[["","8.50"]]}
+]},
+{id:"cold", ka:"ცივი კერძები", en:"Cold Dishes", items:[
+ {ka:"კიტრი-პომიდვრის სალათი", en:"Cucumber and Tomato Salad", p:[["","9.50"]]},
+ {ka:"კიტრი-პომიდვრის სალათი ნიგვზით", en:"Cucumber and Tomato Salad with Walnuts", p:[["","12.50"]]},
+ {ka:"მწვანე სალათი", en:"Green Salad", p:[["","6.50"]]},
+ {ka:"იმერული ყველი", en:"Imeretian Cheese", p:[["","12.50"]]},
+ {ka:"სულგუნი", en:"Sulguni Cheese", p:[["","16.50"]]},
+ {ka:"ქართული ყველის ასორტი", en:"Georgian Cheese Platter", p:[["","24.50"]]},
+ {ka:"ბადრიჯანი ნიგვზით", en:"Eggplant with Walnuts", p:[["","12.50"]]},
+ {ka:"ფხალის ასორტი", en:"Pkhali Assortment", p:[["","21.50"]]},
+ {ka:"მწნილის ასორტი", en:"Pickled Vegetables Assortment", p:[["","11.50"]]},
+ {ka:"ცეზარი", en:"Caesar Salad", p:[["","18.50"]]},
+ {ka:"ცეზარი სოკოთი", en:"Caesar Salad with Mushroom", p:[["","20.50"]]},
+ {ka:"ბერძნული სალათი", en:"Greek Salad", p:[["","18.50"]]},
+ {ka:"ჯონჯოლი ნიგვზითა და მჭადის ჩიფსით", en:"Jonjoli with Walnuts and Cornbread Chips", p:[["","14.50"]]},
+ {ka:"ბაჟე", en:"Bazhe (Walnut Sauce)", p:[["","8.50"]]},
+ {ka:"ჩერი პომიდვრის სალათი", en:"Cherry Tomato Salad", p:[["","17.50"]]}
+]},
+{id:"soups", ka:"წვნიანები", en:"Soups", items:[
+ {ka:"სუპხარჩო", en:"Kharcho Soup", p:[["","15.50"]]},
+ {ka:"წვნიანი ხაშლამა", en:"Boiled Beef Meat Soup", p:[["","16.50"]]},
+ {ka:"ხბოს ჩაქაფული", en:"Veal Chakapuli", p:[["","22.50"]]},
+ {ka:"ჩიხირთმა", en:"Chikhirtma", nka:"ქათმის წვნიანი", nen:"Chicken Soup", p:[["","14.50"]]},
+ {ka:"სოლიანკა", en:"Solyanka Soup", p:[["","16.50"]]},
+ {ka:"სოკოს კრემსუპი", en:"Mushroom Cream Soup", p:[["","12.50"]]}
+]},
+{id:"khinkali", ka:"ხინკალი", en:"Khinkali", items:[
+ {ka:"ხინკალი კალაკური", en:"Khinkali Kalakuri", p:[["","1.60"]]},
+ {ka:"ხინკალი მთიულური", en:"Khinkali Mtiuluri", p:[["","1.60"]]},
+ {ka:"ხინკალი სულგუნით", en:"Khinkali with Sulguni Cheese", p:[["","1.80"]]},
+ {ka:"ხინკალი სოკოთი", en:"Khinkali with Mushroom", p:[["","1.60"]]}
+]},
+{id:"hot", ka:"ცხელი კერძები", en:"Hot Dishes", items:[
+ {ka:"ჩიჩილა ტაბაკა", en:"Chicken Tabaka", nka:"შემწვარი წიწილა", nen:"Pan-Fried Young Chicken", p:[["","28.50"]]},
+ {ka:"ჩიჩილა შქმერულად", en:"Chicken Shkmeruli", nka:"ნიორ-ნაღების სოუსში", nen:"Chicken in Garlic Cream Sauce", p:[["","36.50"]]},
+ {ka:"ჩიჩილა მაყვალში", en:"Chicken in Blackberry Sauce", p:[["","39.50"]]},
+ {ka:"ჩიჩილა ახალ ტყემალში", en:"Chicken with Fresh Tkemali Sauce", p:[["","29.50"]]},
+ {ka:"ოჯახური ღორის ხორცით", en:"Ojakhuri with Pork", p:[["","16.50"]]},
+ {ka:"ოჯახური ხბოს ხორცით", en:"Ojakhuri with Veal", p:[["","19.50"]]},
+ {ka:"ოჯახური სოკოთი", en:"Ojakhuri with Mushrooms", p:[["","15.50"]]},
+ {ka:"მეგრული კუჭმაჭი", en:"Megrelian Kuchmachi", p:[["","23.50"]]},
+ {ka:"იმერული კუპატი", en:"Imeretian Kupati", p:[["","25.50"]]},
+ {ka:"საქონლის ოსტრი", en:"Ostri", nka:"ცხარე საქონლის ხორცი", nen:"Spicy Beef Stew", p:[["","18.50"]]},
+ {ka:"ქათმის შნიცელი", en:"Chicken Schnitzel", p:[["","19.50"]]},
+ {ka:"ლობიო ქოთანში", en:"Beans in a Clay Pot", p:[["","10.50"]]},
+ {ka:"კარტოფილი სახლურად", en:"Homemade Fried Potatoes", p:[["","6.50"]]},
+ {ka:"სოკო კეცზე", en:"Mushroom on a Clay Pan", p:[["","12.50"]]},
+ {ka:"სოკო კეცზე სულგუნით", en:"Mushroom on a Clay Pan with Sulguni Cheese", p:[["","17.50"]]},
+ {ka:"სულგუნი კეცზე", en:"Grilled Sulguni Cheese on a Clay Pan", p:[["","20.50"]]},
+ {ka:"პელმენი ქოთანში", en:"Pelmeni in a Clay Pot", p:[["","12.50"]]},
+ {ka:"ელარჯი", en:"Elarji", p:[["","18.50"]]},
+ {ka:"მეგრული ხარჩო", en:"Megrelian Kharcho", p:[["","22.50"]]},
+ {ka:"ფახიტასი", en:"Fajitas", p:[["","15.50"]]},
+ {ka:"აჯაფსანდალი", en:"Ajapsandali", p:[["","14.50"]]}
+]},
+{id:"grill", ka:"მწვადი", en:"Grill", items:[
+ {ka:"ხბოს მწვადი", en:"Veal Barbecue", p:[["","24.50"]]},
+ {ka:"ღორის მწვადი", en:"Pork Barbecue", p:[["","16.50"]]},
+ {ka:"ქათმის მწვადი", en:"Chicken Barbecue", p:[["","13.50"]]},
+ {ka:"ქაბაბი", en:"Kebab", p:[["","15.50"]]},
+ {ka:"ქაბაბი სულგუნით", en:"Kebab with Sulguni Cheese", p:[["","18.50"]]},
+ {ka:"ხბოს ნეკნი", en:"Veal Ribs", p:[["","36.50"]]},
+ {ka:"ღორის ნეკნი", en:"Pork Ribs", p:[["","26.50"]]}
+]},
+{id:"seafood", ka:"ზღვის პროდუქტები", en:"Seafood", items:[
+ {ka:"კალმახი კეცზე", en:"Trout on a Clay Pan", p:[["","32.50"]]},
+ {ka:"შავი ზღვის ბარაბულა", en:"Black Sea Red Mullet", p:[["","49.50"]]},
+ {ka:"დორადო გრილზე", en:"Grilled Dorado", p:[["","39.50"]]},
+ {ka:"კრევეტები ვეფხვისებრი", en:"Tiger Prawns", p:[["","38.50"]]},
+ {ka:"ორაგულის სტეიკი", en:"Salmon Steak", nka:"ბრინჯის გარნირით", nen:"with Rice Garnish", p:[["","35.50"]]},
+ {ka:"მიდიები პომიდორში", en:"Mussels in Tomato Sauce", p:[["","47.50"]]},
+ {ka:"შავი ზღვის სტავრიდა", en:"Black Sea Horse Mackerel", p:[["","29.50"]]},
+ {ka:"ზღვის პროდუქტების დაფა", en:"Seafood Platter", p:[["","126.50"]]}
+]},
+{id:"bakery", ka:"ცომეული და პასტა", en:"Bakery & Pasta", items:[
+ {ka:"კახური შოთი", en:"Kakhetian Shoti Bread", p:[["","3.50"]]},
+ {ka:"მჭადი", en:"Cornbread", p:[["","2.50"]]},
+ {ka:"ჩვიშტარი", en:"Chvishtari", p:[["","8.50"]]},
+ {ka:"ხაჭაპური იმერული", en:"Imeretian Khachapuri", p:[["","18.50"]]},
+ {ka:"ხაჭაპური მეგრული", en:"Megrelian Khachapuri", p:[["","21.50"]]},
+ {ka:"ხაჭაპური აჭარული", en:"Adjarian Khachapuri", p:[["","17.50"]]},
+ {ka:"რაჭული ლობიანი", en:"Rachan Lobiani", p:[["","16.50"]]},
+ {ka:"იმერული ლობიანი", en:"Imeretian Lobiani", p:[["","14.50"]]},
+ {ka:"პიცა მარგარიტა", en:"Margherita Pizza", p:[["","18.50"]]},
+ {ka:"პიცა პეპერონი", en:"Pepperoni Pizza", p:[["","24.50"]]},
+ {ka:"პიცა ოთხი ყველით", en:"Four Cheese Pizza", p:[["","28.50"]]},
+ {ka:"პიცა სამარხვო", en:"Vegetarian Pizza", p:[["","16.50"]]},
+ {ka:"კარბონარა", en:"Carbonara", p:[["","20.50"]]},
+ {ka:"ბოლონეზე", en:"Bolognese", p:[["","18.50"]]}
+]},
+{id:"sides", ka:"გარნირები", en:"Side Dishes", items:[
+ {ka:"კარტოფილი ფრი", en:"French Fries", p:[["","7.50"]]},
+ {ka:"კარტოფილის პიურე", en:"Mashed Potatoes", p:[["","5.50"]]},
+ {ka:"მექსიკური კარტოფილი", en:"Mexican Potatoes", p:[["","9.50"]]},
+ {ka:"ბრინჯი ბოსტნეულით", en:"Rice with Vegetables", p:[["","8.50"]]}
+]},
+{id:"sauces", ka:"სოუსები", en:"Sauces", items:[
+ {ka:"პომიდვრის საწებელი", en:"Tomato Sauce", p:[["","3.50"]]},
+ {ka:"მწვანე ტყემალი", en:"Green Tkemali Sauce", p:[["","3.50"]]},
+ {ka:"მექსიკური სოუსი", en:"Mexican Sauce", p:[["","3.50"]]},
+ {ka:"კეტჩუპი", en:"Ketchup", p:[["","2.50"]]},
+ {ka:"მაშრაფე", en:"Mashrafe Sauce", p:[["","3.50"]]},
+ {ka:"მდოგვი", en:"Mustard", p:[["","2.50"]]},
+ {ka:"მეგრული აჯიკა", en:"Megrelian Ajika", p:[["","2.50"]]},
+ {ka:"მწვანე აჯიკა", en:"Green Adjika", p:[["","2.50"]]},
+ {ka:"ყველის სოუსი", en:"Cheese Sauce", p:[["","5.50"]]},
+ {ka:"ბარბექიუს სოუსი", en:"Barbecue Sauce", p:[["","3.50"]]},
+ {ka:"არაჟანი", en:"Sour Cream", p:[["","2.50"]]}
+]},
+{id:"desserts", ka:"დესერტი", en:"Desserts", items:[
+ {ka:"ტირამისუ", en:"Tiramisu", p:[["","13.50"]]},
+ {ka:"ლავა ქეიქი", en:"Lava Cake", p:[["","12.50"]]},
+ {ka:"კრეპი შოკოლადით და ბანანით", en:"Crepe with Chocolate and Banana", p:[["","10.50"]]},
+ {ka:"ნაყინი", en:"Ice Cream", p:[["","5.50"]]},
+ {ka:"ხილის ასორტი", en:"Fruit Platter", p:[["","22.50"]]}
+]},
+{id:"wine", ka:"ღვინო ბოთლით", en:"Bottled Wine", items:[
+ {ka:"ქინძმარაული", en:"Kindzmarauli", p:[["0.750L","42.50"],["50ml","8.50"]]},
+ {ka:"ტვიში", en:"Tvishi", p:[["0.750L","48.50"],["50ml","9.50"]]},
+ {ka:"საფერავი", en:"Saperavi", p:[["0.750L","32.50"],["50ml","7.50"]]},
+ {ka:"საფერავი როზე", en:"Saperavi Rose", p:[["0.750L","28.50"],["50ml","6.50"]]},
+ {ka:"მანავის მწვანე", en:"Manavi Mtsvane", p:[["0.750L","28.50"],["50ml","6.50"]]},
+ {ka:"ქისი", en:"Kisi", p:[["0.750L","32.50"],["50ml","7.50"]]},
+ {ka:"ოჯალეში", en:"Ojaleshi", p:[["0.750L","55.50"],["50ml","12.50"]]},
+ {ka:"ხვანჭკარა", en:"Khvanchkara", p:[["0.750L","75.50"],["50ml","15.50"]]},
+ {ka:"მეღვინეობა მახარე „კაპისტონი“", en:"Winery Makhare \"Kapistoni\"", p:[["0.750L","85.50"],["50ml","16.50"]]},
+ {ka:"მეღვინეობა მახარე „ოცხანური საფერე“", en:"Winery Makhare \"Otskhanuri Sapere\"", p:[["0.750L","85.50"],["50ml","16.50"]]}
+]},
+{id:"vodka", ka:"არაყი & ტეკილა", en:"Vodka & Tequila", items:[
+ {ka:"გრეი გუსი", en:"Grey Goose", p:[["1L","230.50"],["0.5L","148.50"],["50ml","15.50"]]},
+ {ka:"მონ ბლანი", en:"Mont Blanc", p:[["1L","290.50"],["0.5L","160.50"],["50ml","18.50"]]},
+ {ka:"აბსოლუტი", en:"Absolut", p:[["1L","88.50"],["0.5L","48.50"],["50ml","6.50"]]},
+ {ka:"ბელუგა", en:"Beluga", p:[["1L","245.50"],["0.5L","162.50"],["50ml","14.50"]]},
+ {ka:"სტოლიჩნაია", en:"Stolichnaya", p:[["1L","74.50"],["0.5L","39.50"],["50ml","5.50"]]},
+ {ka:"ოლმეკა სილვერი ტეკილა", en:"Olmeca Silver Tequila", p:[["1L","155.50"],["50ml","9.50"]]},
+ {ka:"ოლმეკა გოლდი ტეკილა", en:"Olmeca Gold Tequila", p:[["1L","160.50"],["50ml","10.50"]]},
+ {ka:"ასკანელი ჭაჭა ოქრო", en:"Askaneli Chacha Gold", p:[["0.5L","45.50"],["50ml","6.50"]]},
+ {ka:"ასკანელი ჭაჭა პლატინი", en:"Askaneli Chacha Platinum", p:[["0.5L","50.50"],["50ml","7.50"]]},
+ {ka:"ქართული ღვინის არაყი კირკე", en:"Georgian Wine Vodka Kirke", p:[["0.5L","65.50"],["50ml","7.50"]]},
+ {ka:"ანასეული ტყემლის", en:"Anaseuli Tkemali", p:[["0.5L","57.50"],["50ml","6.50"]]},
+ {ka:"ანასეული ხურმის", en:"Anaseuli Persimmon", p:[["0.5L","57.50"],["50ml","6.50"]]},
+ {ka:"ანასეული ქლიავის", en:"Anaseuli Plum", p:[["0.5L","57.50"],["50ml","6.50"]]},
+ {ka:"ანასეული ფეიხოა", en:"Anaseuli Feijoa", p:[["0.5L","57.50"],["50ml","6.50"]]},
+ {ka:"შტროხი", en:"Stroh", p:[["50ml","12.50"]]}
+]},
+{id:"whisky", ka:"ვისკი & კონიაკი", en:"Whisky & Cognac", items:[
+ {ka:"სარაჯიშვილი 5*", en:"Sarajishvili 5*", p:[["0.5L","60.50"],["50ml","7.50"]]},
+ {ka:"სარაჯიშვილი ვს", en:"Sarajishvili VS", p:[["0.5L","85.50"],["50ml","15.50"]]},
+ {ka:"ჯიმშერი", en:"Jimsher", p:[["0.7L","82.50"],["50ml","8.50"]]},
+ {ka:"ჰენესი", en:"Hennessy Cognac", p:[["1L","290.50"],["50ml","18.50"]]},
+ {ka:"მაკალანი 12", en:"The Macallan 12", p:[["0.7L","580.50"],["50ml","48.50"]]},
+ {ka:"რედ ლეიბლი", en:"Red Label", p:[["1L","114.50"],["50ml","9.50"]]},
+ {ka:"ბლექ ლეიბლი", en:"Black Label", p:[["1L","190.50"],["50ml","14.50"]]},
+ {ka:"ჯეკ დანიელსი", en:"Jack Daniel's", p:[["1L","142.50"],["50ml","10.50"]]},
+ {ka:"ჯეკ დანიელსი თაფლის", en:"Jack Daniel's Honey", p:[["0.7L","168.50"],["50ml","12.50"]]},
+ {ka:"ჯეიმსონი", en:"Jameson", p:[["1L","142.50"],["0.5L","95.50"],["50ml","11.50"]]},
+ {ka:"ჩივას რეგალი 12", en:"Chivas Regal 12", p:[["1L","170.50"],["50ml","14.50"]]},
+ {ka:"ჩივას რეგალი 18", en:"Chivas Regal 18", p:[["1L","490.50"],["50ml","24.50"]]}
+]},
+{id:"gin", ka:"ჯინი & რომი", en:"Gin & Rum", items:[
+ {ka:"ბიფიტერი", en:"Beefeater", p:[["1L","116.50"],["50ml","9.50"]]},
+ {ka:"კაპიტან მორგანი მუქი", en:"Captain Morgan Dark Rum", p:[["1L","110.50"],["50ml","10.50"]]},
+ {ka:"იაგერმაისტერი", en:"Jägermeister", p:[["1L","110.50"],["50ml","10.50"]]},
+ {ka:"კალუა", en:"Kahlúa Coffee Liqueur", p:[["1L","138.50"],["50ml","12.50"]]},
+ {ka:"ბეილისი", en:"Baileys Irish Cream", p:[["1L","125.50"],["50ml","10.50"]]}
+]},
+{id:"cocktail", ka:"კოქტეილი", en:"Cocktail", items:[
+ {ka:"ნეგრონი", en:"Negroni", p:[["","17.50"]]},
+ {ka:"აპეროლ სპრიცი", en:"Aperol Spritz", p:[["","20.50"]]},
+ {ka:"ლონგ აილენდი", en:"Long Island Iced Tea", p:[["","22.50"]]},
+ {ka:"ლონგ აილენდი ენერჯი", en:"Long Island Energy", p:[["","27.50"]]},
+ {ka:"ჯინ & ტონიკი", en:"Gin & Tonic", p:[["","19.50"]]},
+ {ka:"მოხიტო", en:"Mojito", p:[["","17.50"]]},
+ {ka:"კოსმოპოლიტენი", en:"Cosmopolitan", p:[["","17.50"]]},
+ {ka:"მარგარიტა", en:"Margarita", p:[["","15.50"]]}
+]},
+{id:"coffee", ka:"ყავა & ჩაი", en:"Coffee & Tea", items:[
+ {ka:"ჩაი შავი", en:"Black Tea", p:[["","4.50"]]},
+ {ka:"ჩაი მწვანე", en:"Green Tea", p:[["","4.50"]]},
+ {ka:"ხილის ჩაი", en:"Fruit Tea", p:[["","4.50"]]},
+ {ka:"ამერიკანო", en:"Americano", p:[["","5.50"]]},
+ {ka:"ესპრესო", en:"Espresso", p:[["","4.50"]]},
+ {ka:"კაპუჩინო", en:"Cappuccino", p:[["","7.50"]]},
+ {ka:"ორმაგი ესპრესო", en:"Double Espresso", p:[["","8.50"]]},
+ {ka:"ლატე", en:"Caffè Latte", p:[["","8.50"]]},
+ {ka:"ცივი ყავა", en:"Iced Coffee", p:[["","8.50"]]},
+ {ka:"ცივი ყავა ნაყინით", en:"Iced Coffee with Ice Cream", p:[["","12.50"]]},
+ {ka:"თურქული ყავა", en:"Turkish Coffee", p:[["","4.50"]]}
+]},
+{id:"soft", ka:"გამაგრილებელი სასმელები", en:"Soft Drinks", items:[
+ {ka:"წვენი (ჭიქით)", en:"Juice (Glass)", p:[["","5.50"]]},
+ {ka:"წვენი (დოქით)", en:"Juice (Pitcher)", p:[["","15.50"]]},
+ {ka:"ლიმონათი", en:"Limonade", p:[["","3.50"]]},
+ {ka:"კოკა-კოლა კლასიკი", en:"Coca-Cola Classic", p:[["","3.50"]]},
+ {ka:"კოკა-კოლა ზერო", en:"Coca-Cola Zero", p:[["","3.50"]]},
+ {ka:"ფანტა", en:"Fanta", p:[["","3.50"]]},
+ {ka:"სახლის ლიმონათი (დოქით)", en:"Homemade Lemonade (Pitcher)", p:[["","15.50"]]},
+ {ka:"სახლის ლიმონათი (ჭიქით)", en:"Homemade Lemonade (Glass)", p:[["","7.50"]]},
+ {ka:"ნაბეღლავი", en:"Nabeghlavi Sparkling Water", p:[["","3.50"]]},
+ {ka:"წყალი", en:"Mineral Water", p:[["","3.50"]]},
+ {ka:"ტონიკი (ქილა)", en:"Tonic (Can)", p:[["","5.50"]]},
+ {ka:"რედ ბული", en:"Red Bull", p:[["","10.50"]]},
+ {ka:"ორეოს მილქშეიქი", en:"Oreo Milkshake", p:[["","15.50"]]},
+ {ka:"ბანანის მილქშეიქი", en:"Banana Milkshake", p:[["","15.50"]]}
+]}
+];
