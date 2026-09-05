@@ -11,7 +11,8 @@ Maisel's Weisse label, plus the QR code and print-ready table cards.
 | `menu-data.js` | Every item and price. **This is the only file you edit day to day.** |
 | `make-qr.py` | Generates `qr.svg` + `qr.png` from the live URL. |
 | `card.html` | A4 sheet of four A6 table cards with the QR, ready to print and cut. |
-| `logo.png` | Optional. Drop the real logo here and the page uses it automatically. |
+| `logo.png` | The Maisel's Weisse label, transparent background, used on the page and the cards. |
+| `logo-source.png` | Full-resolution original. `logo.png` is generated from it. |
 
 ## Changing a price or an item
 

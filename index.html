@@ -53,12 +53,9 @@ img{max-width:100%;display:block}
   content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
   background:linear-gradient(90deg,transparent,var(--silver) 20%,#fff 50%,var(--silver) 80%,transparent);
 }
-.seal{
-  width:min(218px,60vw);margin:0 auto 18px;
-  background:#fff;border-radius:4px;padding:10px 12px;
-  box-shadow:0 10px 26px rgba(4,16,36,.42);
-}
-.seal img{width:100%;height:auto}
+.seal{width:min(236px,64vw);margin:0 auto 18px}
+/* the label is transparent, so the shadow follows the oval, not a box */
+.seal img{width:100%;height:auto;filter:drop-shadow(0 7px 16px rgba(2,10,26,.55))}
 .seal.fallback{
   width:112px;height:112px;padding:0;background:transparent;
   border-radius:50%;box-shadow:none;display:grid;place-items:center;
@@ -431,7 +428,7 @@ var SITE = {
   var seal = document.getElementById("seal");
   var probe = new Image();
   probe.onload = function(){
-    seal.innerHTML = '<img src="logo.jpg" width="700" height="589" alt="Maisel\'s Weisse aus Bayreuth">';
+    seal.innerHTML = '<img src="logo.png" width="700" height="584" alt="Maisel\'s Weisse aus Bayreuth">';
   };
   probe.onerror = function(){
     seal.className = "seal fallback";
@@ -442,7 +439,7 @@ var SITE = {
       + '<text x="60" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#16386B">MK</text>'
       + '</svg>';
   };
-  probe.src = "logo.jpg";
+  probe.src = "logo.png";
 })();
 </script>
 </body>
