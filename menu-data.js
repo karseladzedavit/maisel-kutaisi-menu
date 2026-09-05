@@ -3,14 +3,14 @@
    p: [["size","price"], ...]  - a single pair with an empty size shows just the price. */
 const MENU = [
 {id:"draft", ka:"ჩამოსასხმელი ლუდი", en:"Draft Beer", items:[
- {ka:"მაისელს ვაისე ორიგინალი", en:"Maisel's Weisse Original", nka:"გაუფილტრავი", nen:"Unfiltered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
- {ka:"ბაირაითერ ჰელი", en:"Bayreuther Hell", nka:"გაფილტრული", nen:"Filtered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
- {ka:"შლენკერლა შმოქბიერი", en:"Schlenkerla Smokebeer", nka:"მუქი", nen:"Dark Beer", p:[["0.4L","8.90"]]}
+ {ka:"მაისელს ვაისი ორიგინალი", en:"Maisel's Weisse Original", nka:"გაუფილტრავი", nen:"Unfiltered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
+ {ka:"ბაიროითერ ჰელი", en:"Bayreuther Hell", nka:"გაფილტრული", nen:"Filtered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
+ {ka:"შლენკერლა შებოლილი", en:"Schlenkerla Smokebeer", nka:"მუქი", nen:"Dark Beer", p:[["0.4L","8.90"]]}
 ]},
 {id:"beersnacks", ka:"ლუდის მენიუ", en:"Beer Menu", items:[
  {ka:"ბავარიული სოსისების დაფა", en:"Sausage Bavarian Platter", p:[["","124.50"]]},
  {ka:"სოსისი ბეკონით", en:"Bacon-Wrapped Sausage", p:[["","49.50"]]},
- {ka:"ღორის ბარკალი ბავარიულად", en:"Bavarian Pork Knuckle", p:[["","68.50"]]},
+ {ka:"კანჭი ბავარიულად", en:"Bavarian Pork Knuckle", p:[["","68.50"]]},
  {ka:"ქათმის ფრთები ბარბექიუს სოუსით", en:"Chicken Wings with Barbecue Sauce", p:[["","19.50"]]},
  {ka:"ქათმის ფრთები ცხარე სოუსით", en:"Chicken Wings with Spicy Sauce", p:[["","18.50"]]},
  {ka:"ნივრიანი პური", en:"Garlic Bread", p:[["","7.50"]]},
@@ -30,9 +30,9 @@ const MENU = [
  {ka:"ქართული ყველის ასორტი", en:"Georgian Cheese Platter", p:[["","24.50"]]},
  {ka:"ბადრიჯანი ნიგვზით", en:"Eggplant with Walnuts", p:[["","12.50"]]},
  {ka:"ფხალის ასორტი", en:"Pkhali Assortment", p:[["","21.50"]]},
- {ka:"მწნილის ასორტი", en:"Pickled Vegetables Assortment", p:[["","11.50"]]},
- {ka:"ცეზარი", en:"Caesar Salad", p:[["","18.50"]]},
- {ka:"ცეზარი სოკოთი", en:"Caesar Salad with Mushroom", p:[["","20.50"]]},
+ {ka:"მჟავის ასორტი", en:"Pickled Vegetables Assortment", p:[["","11.50"]]},
+ {ka:"ცეზარი", en:"Caesar Salad", p:[["","20.50"]]},
+ {ka:"ცეზარი სოკოთი", en:"Caesar Salad with Mushroom", p:[["","18.50"]]},
  {ka:"ბერძნული სალათი", en:"Greek Salad", p:[["","18.50"]]},
  {ka:"ჯონჯოლი ნიგვზითა და მჭადის ჩიფსით", en:"Jonjoli with Walnuts and Cornbread Chips", p:[["","14.50"]]},
  {ka:"ბაჟე", en:"Bazhe (Walnut Sauce)", p:[["","8.50"]]},
@@ -43,20 +43,20 @@ const MENU = [
  {ka:"წვნიანი ხაშლამა", en:"Boiled Beef Meat Soup", p:[["","16.50"]]},
  {ka:"ხბოს ჩაქაფული", en:"Veal Chakapuli", p:[["","22.50"]]},
  {ka:"ჩიხირთმა", en:"Chikhirtma", nka:"ქათმის წვნიანი", nen:"Chicken Soup", p:[["","14.50"]]},
- {ka:"სოლიანკა", en:"Solyanka Soup", p:[["","16.50"]]},
+ {ka:"სბორნაია სალიანკა", en:"Solyanka Soup", p:[["","16.50"]]},
  {ka:"სოკოს კრემსუპი", en:"Mushroom Cream Soup", p:[["","12.50"]]}
 ]},
 {id:"khinkali", ka:"ხინკალი", en:"Khinkali", items:[
- {ka:"ხინკალი კალაკური", en:"Khinkali Kalakuri", p:[["","1.60"]]},
+ {ka:"ხინკალი ქალაქური", en:"Khinkali Kalakuri", p:[["","1.60"]]},
  {ka:"ხინკალი მთიულური", en:"Khinkali Mtiuluri", p:[["","1.60"]]},
  {ka:"ხინკალი სულგუნით", en:"Khinkali with Sulguni Cheese", p:[["","1.80"]]},
  {ka:"ხინკალი სოკოთი", en:"Khinkali with Mushroom", p:[["","1.60"]]}
 ]},
 {id:"hot", ka:"ცხელი კერძები", en:"Hot Dishes", items:[
- {ka:"ჩიჩილა ტაბაკა", en:"Chicken Tabaka", nka:"შემწვარი წიწილა", nen:"Pan-Fried Young Chicken", p:[["","28.50"]]},
- {ka:"ჩიჩილა შქმერულად", en:"Chicken Shkmeruli", nka:"ნიორ-ნაღების სოუსში", nen:"Chicken in Garlic Cream Sauce", p:[["","36.50"]]},
- {ka:"ჩიჩილა მაყვალში", en:"Chicken in Blackberry Sauce", p:[["","39.50"]]},
- {ka:"ჩიჩილა ახალ ტყემალში", en:"Chicken with Fresh Tkemali Sauce", p:[["","29.50"]]},
+ {ka:"წიწილა ტაბაკად", en:"Chicken Tabaka", nka:"შემწვარი წიწილა", nen:"Pan-Fried Young Chicken", p:[["","28.50"]]},
+ {ka:"წიწილა შქმერულად", en:"Chicken Shkmeruli", nka:"ნიორ-ნაღების სოუსში", nen:"Chicken in Garlic Cream Sauce", p:[["","36.50"]]},
+ {ka:"წიწილა მაყვალში", en:"Chicken in Blackberry Sauce", p:[["","39.50"]]},
+ {ka:"წიწილა ახალ ტყემალში", en:"Chicken with Fresh Tkemali Sauce", p:[["","29.50"]]},
  {ka:"ოჯახური ღორის ხორცით", en:"Ojakhuri with Pork", p:[["","16.50"]]},
  {ka:"ოჯახური ხბოს ხორცით", en:"Ojakhuri with Veal", p:[["","19.50"]]},
  {ka:"ოჯახური სოკოთი", en:"Ojakhuri with Mushrooms", p:[["","15.50"]]},
@@ -75,7 +75,7 @@ const MENU = [
  {ka:"ფახიტასი", en:"Fajitas", p:[["","15.50"]]},
  {ka:"აჯაფსანდალი", en:"Ajapsandali", p:[["","14.50"]]}
 ]},
-{id:"grill", ka:"მწვადი", en:"Grill", items:[
+{id:"grill", ka:"გრილი", en:"Grill", items:[
  {ka:"ხბოს მწვადი", en:"Veal Barbecue", p:[["","24.50"]]},
  {ka:"ღორის მწვადი", en:"Pork Barbecue", p:[["","16.50"]]},
  {ka:"ქათმის მწვადი", en:"Chicken Barbecue", p:[["","13.50"]]},
@@ -86,7 +86,7 @@ const MENU = [
 ]},
 {id:"seafood", ka:"ზღვის პროდუქტები", en:"Seafood", items:[
  {ka:"კალმახი კეცზე", en:"Trout on a Clay Pan", p:[["","32.50"]]},
- {ka:"შავი ზღვის ბარაბულა", en:"Black Sea Red Mullet", p:[["","49.50"]]},
+ {ka:"შავი ზღვის ბარაბულკა", en:"Black Sea Red Mullet", p:[["","49.50"]]},
  {ka:"დორადო გრილზე", en:"Grilled Dorado", p:[["","39.50"]]},
  {ka:"კრევეტები ვეფხვისებრი", en:"Tiger Prawns", p:[["","38.50"]]},
  {ka:"ორაგულის სტეიკი", en:"Salmon Steak", nka:"ბრინჯის გარნირით", nen:"with Rice Garnish", p:[["","35.50"]]},
@@ -97,7 +97,7 @@ const MENU = [
 {id:"bakery", ka:"ცომეული და პასტა", en:"Bakery & Pasta", items:[
  {ka:"კახური შოთი", en:"Kakhetian Shoti Bread", p:[["","3.50"]]},
  {ka:"მჭადი", en:"Cornbread", p:[["","2.50"]]},
- {ka:"ჩვიშტარი", en:"Chvishtari", p:[["","8.50"]]},
+ {ka:"ჭვიშტარი", en:"Chvishtari", p:[["","8.50"]]},
  {ka:"ხაჭაპური იმერული", en:"Imeretian Khachapuri", p:[["","18.50"]]},
  {ka:"ხაჭაპური მეგრული", en:"Megrelian Khachapuri", p:[["","21.50"]]},
  {ka:"ხაჭაპური აჭარული", en:"Adjarian Khachapuri", p:[["","17.50"]]},
@@ -121,7 +121,7 @@ const MENU = [
  {ka:"მწვანე ტყემალი", en:"Green Tkemali Sauce", p:[["","3.50"]]},
  {ka:"მექსიკური სოუსი", en:"Mexican Sauce", p:[["","3.50"]]},
  {ka:"კეტჩუპი", en:"Ketchup", p:[["","2.50"]]},
- {ka:"მაშრაფე", en:"Mashrafe Sauce", p:[["","3.50"]]},
+ {ka:"მაშარაფი", en:"Mashrafe Sauce", p:[["","3.50"]]},
  {ka:"მდოგვი", en:"Mustard", p:[["","2.50"]]},
  {ka:"მეგრული აჯიკა", en:"Megrelian Ajika", p:[["","2.50"]]},
  {ka:"მწვანე აჯიკა", en:"Green Adjika", p:[["","2.50"]]},
@@ -131,8 +131,8 @@ const MENU = [
 ]},
 {id:"desserts", ka:"დესერტი", en:"Desserts", items:[
  {ka:"ტირამისუ", en:"Tiramisu", p:[["","13.50"]]},
- {ka:"ლავა ქეიქი", en:"Lava Cake", p:[["","12.50"]]},
- {ka:"კრეპი შოკოლადით და ბანანით", en:"Crepe with Chocolate and Banana", p:[["","10.50"]]},
+ {ka:"ლავაქეიქი", en:"Lava Cake", p:[["","12.50"]]},
+ {ka:"კრეპი შოკოლადითა და ბანანით", en:"Crepe with Chocolate and Banana", p:[["","10.50"]]},
  {ka:"ნაყინი", en:"Ice Cream", p:[["","5.50"]]},
  {ka:"ხილის ასორტი", en:"Fruit Platter", p:[["","22.50"]]}
 ]},
@@ -153,11 +153,11 @@ const MENU = [
  {ka:"მონ ბლანი", en:"Mont Blanc", p:[["1L","290.50"],["0.5L","160.50"],["50ml","18.50"]]},
  {ka:"აბსოლუტი", en:"Absolut", p:[["1L","88.50"],["0.5L","48.50"],["50ml","6.50"]]},
  {ka:"ბელუგა", en:"Beluga", p:[["1L","245.50"],["0.5L","162.50"],["50ml","14.50"]]},
- {ka:"სტოლიჩნაია", en:"Stolichnaya", p:[["1L","74.50"],["0.5L","39.50"],["50ml","5.50"]]},
+ {ka:"სტალიჩნაია", en:"Stolichnaya", p:[["1L","74.50"],["0.5L","39.50"],["50ml","5.50"]]},
  {ka:"ოლმეკა სილვერი ტეკილა", en:"Olmeca Silver Tequila", p:[["1L","155.50"],["50ml","9.50"]]},
  {ka:"ოლმეკა გოლდი ტეკილა", en:"Olmeca Gold Tequila", p:[["1L","160.50"],["50ml","10.50"]]},
  {ka:"ასკანელი ჭაჭა ოქრო", en:"Askaneli Chacha Gold", p:[["0.5L","45.50"],["50ml","6.50"]]},
- {ka:"ასკანელი ჭაჭა პლატინი", en:"Askaneli Chacha Platinum", p:[["0.5L","50.50"],["50ml","7.50"]]},
+ {ka:"ასკანელი ჭაჭა პლატინა", en:"Askaneli Chacha Platinum", p:[["0.5L","50.50"],["50ml","7.50"]]},
  {ka:"ქართული ღვინის არაყი კირკე", en:"Georgian Wine Vodka Kirke", p:[["0.5L","65.50"],["50ml","7.50"]]},
  {ka:"ანასეული ტყემლის", en:"Anaseuli Tkemali", p:[["0.5L","57.50"],["50ml","6.50"]]},
  {ka:"ანასეული ხურმის", en:"Anaseuli Persimmon", p:[["0.5L","57.50"],["50ml","6.50"]]},
