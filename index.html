@@ -181,11 +181,15 @@ footer .forn i{height:1px;width:40px;background:rgba(201,207,214,.4)}
 footer .forn b{width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
 footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
 footer .contact div{margin:3px 0}
-footer .socials{margin-top:14px;display:flex;gap:9px;justify-content:center}
+footer .socials{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 footer .socials a{
-  border:1px solid rgba(255,255,255,.35);border-radius:2px;
-  padding:6px 16px;font-size:12.5px;font-weight:600;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid rgba(255,255,255,.32);border-radius:2px;
+  padding:7px 14px;font-size:12.5px;font-weight:600;letter-spacing:.04em;
+  transition:background .18s,border-color .18s;
 }
+footer .socials a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+footer .socials svg{width:15px;height:15px;flex:none;opacity:.9}
 footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC}
 
 .top{
@@ -268,13 +272,15 @@ footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC
    CONTACT DETAILS - fill these in, empty values are simply not shown.
    ------------------------------------------------------------------ */
 var SITE = {
-  addressKa: "",              // e.g. "ქუთაისი, თამარ მეფის ქ. N13"
-  addressEn: "",              // e.g. "13 Tamar Mepe St, Kutaisi"
-  phone:     "",              // e.g. "+995 555 12 34 56"
-  hoursKa:   "",              // e.g. "ყოველდღე 12:00 - 02:00"
-  hoursEn:   "",              // e.g. "Daily 12:00 - 02:00"
-  facebook:  "",              // full https:// link
-  instagram: ""               // full https:// link
+  addressKa: "გალაკტიონ ტაბიძის ქ. N13, ქუთაისი 4600",
+  addressEn: "13 Galaktion Tabidze St, Kutaisi 4600",
+  phone:     "+995 596 70 07 00",
+  hoursKa:   "",              // e.g. "ყოველდღე 10:00 - 01:00"
+  hoursEn:   "",              // e.g. "Daily 10:00 - 01:00"
+  maps:      "https://www.google.com/maps/place/?cid=1479512363381335002",
+  facebook:  "https://www.facebook.com/maiselkutaisi",
+  instagram: "https://www.instagram.com/maisel_kutaisi/",
+  review:    "https://www.google.com/maps/place//data=!4m3!3m2!1s0x405c8d87f0544bd1:0x148848a7dc24a3da!12e1"
 };
 
 (function(){
@@ -336,16 +342,33 @@ var SITE = {
   // contact block: only the fields that were filled in
   (function(){
     var c = "";
-    if (SITE.addressKa || SITE.addressEn)
-      c += '<div data-ka="' + esc(SITE.addressKa || SITE.addressEn) + '" data-en="' + esc(SITE.addressEn || SITE.addressKa) + '"></div>';
+    if (SITE.addressKa || SITE.addressEn){
+      var addr = '<span data-ka="' + esc(SITE.addressKa || SITE.addressEn) + '" data-en="' + esc(SITE.addressEn || SITE.addressKa) + '"></span>';
+      c += '<div>' + (SITE.maps
+            ? '<a href="' + esc(SITE.maps) + '" target="_blank" rel="noopener">' + addr + '</a>'
+            : addr) + '</div>';
+    }
     if (SITE.phone)
       c += '<div><a href="tel:' + esc(SITE.phone.replace(/[^+\d]/g, "")) + '">' + esc(SITE.phone) + '</a></div>';
     if (SITE.hoursKa || SITE.hoursEn)
       c += '<div data-ka="' + esc(SITE.hoursKa || SITE.hoursEn) + '" data-en="' + esc(SITE.hoursEn || SITE.hoursKa) + '"></div>';
+
     var s = "";
-    if (SITE.facebook)  s += '<a href="' + esc(SITE.facebook)  + '" target="_blank" rel="noopener">Facebook</a>';
-    if (SITE.instagram) s += '<a href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
+    if (SITE.facebook)
+      s += '<a href="' + esc(SITE.facebook) + '" target="_blank" rel="noopener">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.93 8.44-9.94z"/></svg>'
+         + '<span>Facebook</span></a>';
+    if (SITE.instagram)
+      s += '<a href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.29A6.55 6.55 0 1 0 18.55 12 6.55 6.55 0 0 0 12 5.45zm0 10.8A4.25 4.25 0 1 1 16.25 12 4.25 4.25 0 0 1 12 16.25zm6.81-10.98a1.53 1.53 0 1 1-1.53-1.53 1.53 1.53 0 0 1 1.53 1.53z"/></svg>'
+         + '<span>Instagram</span></a>';
+    if (SITE.review)
+      s += '<a href="' + esc(SITE.review) + '" target="_blank" rel="noopener" '
+         + 'data-ka-label="შეაფასეთ Google-ზე" data-en-label="Review us on Google">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 2 2.9 6.26 6.85.74-5.1 4.6 1.42 6.72L12 16.9 5.93 20.3l1.42-6.7-5.1-4.6 6.85-.74z"/></svg>'
+         + '<span data-ka="შეფასება" data-en="Review"></span></a>';
     if (s) c += '<div class="socials">' + s + '</div>';
+
     document.getElementById("contact").innerHTML = c;
     applyLang(lang); // this block was added after the first pass
   })();
