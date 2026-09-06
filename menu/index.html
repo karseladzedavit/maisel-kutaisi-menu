@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maisel Kutaisi - მენიუ / Menu</title>
+<meta name="description" content="Maisel Kutaisi - სრული მენიუ / full menu. Bavarian beer, Georgian kitchen. Kutaisi.">
+<meta name="theme-color" content="#16386B">
+<link rel="icon" href="favicon-32.png?v=2" sizes="32x32">
+<link rel="icon" href="favicon-64.png?v=2" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16386B;
+  --navy-deep:#0E2749;
+  --blue:#2A6EBB;
+  --silver:#C9CFD6;
+  --paper:#F6F2E9;
+  --paper-2:#EFEADE;
+  --gold:#C79A3E;
+  --ink:#232B36;
+  --muted:#797F88;
+  --rule:#D8D2C4;
+  --maxw:720px;
+  --bar:96px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+
+body{
+  margin:0;
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+
+/* ---------------- masthead ---------------- */
+.hero{
+  background:linear-gradient(180deg,#1B4179 0%,#16386B 40%,#0E2749 100%);
+  color:#fff;text-align:center;
+  padding:30px 20px 24px;
+  position:relative;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--silver) 20%,#fff 50%,var(--silver) 80%,transparent);
+}
+.seal{width:min(236px,64vw);margin:0 auto 18px}
+/* the label is transparent, so the shadow follows the oval, not a box */
+.seal img{width:100%;height:auto;filter:drop-shadow(0 7px 16px rgba(2,10,26,.55))}
+.seal.fallback{
+  width:112px;height:112px;padding:0;background:transparent;
+  border-radius:50%;box-shadow:none;display:grid;place-items:center;
+}
+.brand{
+  font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;
+  font-size:clamp(27px,7.6vw,38px);letter-spacing:.015em;
+  margin:0;line-height:1.08;
+}
+.tagline{
+  margin:11px auto 0;max-width:32ch;
+  font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:#A9C3E4;font-weight:500;
+}
+
+/* ---------------- sticky tab strip ---------------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,242,233,.96);
+  backdrop-filter:saturate(1.1) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:9px 16px 0;display:flex;align-items:center;gap:10px;
+}
+.mini{
+  font-family:"Noto Serif Georgian",Georgia,serif;font-weight:700;
+  color:var(--navy);font-size:15px;letter-spacing:.02em;white-space:nowrap;
+}
+.langs{margin-left:auto;display:flex;gap:2px;flex:none}
+.langs button{
+  border:0;background:transparent;padding:4px 7px;border-radius:3px;
+  cursor:pointer;line-height:0;transition:opacity .18s,filter .18s;
+}
+.langs button svg{
+  width:25px;height:17px;display:block;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(22,56,107,.28);
+}
+.langs button[aria-pressed="false"]{opacity:.4;filter:saturate(.15)}
+.langs button[aria-pressed="true"] svg{box-shadow:0 0 0 1px rgba(22,56,107,.55),0 1px 3px rgba(0,0,0,.18)}
+
+.tabs{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;gap:20px;overflow-x:auto;
+  padding:6px 16px 0;scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{
+  flex:none;white-space:nowrap;text-decoration:none;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:13.5px;font-weight:600;letter-spacing:.05em;
+  color:#8A8F97;padding:7px 0 9px;
+  border-bottom:2px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.tabs a.on{color:var(--navy);border-bottom-color:var(--navy)}
+
+/* ---------------- menu body ---------------- */
+main{max-width:var(--maxw);margin:0 auto;padding:6px 22px 44px}
+section{scroll-margin-top:var(--bar)}
+
+.head{text-align:center;margin:38px 0 6px}
+section:first-child .head{margin-top:26px}
+.orn{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:10px}
+.orn i{display:block;height:1px;width:52px}
+.orn i:first-child{background:linear-gradient(90deg,transparent,var(--rule))}
+.orn i:last-child{background:linear-gradient(90deg,var(--rule),transparent)}
+.orn b{display:block;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.head h2{
+  margin:0;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:clamp(19px,5vw,23px);
+  color:var(--navy);letter-spacing:.045em;line-height:1.25;
+}
+
+.list{margin-top:14px}
+.row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(216,210,196,.6);
+}
+.row:last-child{border-bottom:0}
+.nm{
+  flex:1;min-width:0;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:16px;font-weight:400;line-height:1.35;
+}
+.nm small{
+  display:block;font-family:"Noto Sans Georgian",sans-serif;
+  font-weight:400;font-size:12.5px;color:var(--muted);
+  margin-top:2px;letter-spacing:.01em;
+}
+.pr{flex:none;text-align:right;font-variant-numeric:tabular-nums}
+.pr div+div{margin-top:3px}
+.pr b{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:15.5px;color:var(--navy);
+}
+.pr .sz{font-size:10.5px;color:var(--muted);letter-spacing:.06em;margin-right:6px;text-transform:uppercase}
+.pr .lari{font-size:11.5px;color:var(--gold);margin-left:3px}
+
+/* ---------------- footer ---------------- */
+footer{
+  background:var(--navy-deep);color:#B9CCE6;text-align:center;
+  padding:30px 22px 38px;font-size:13.5px;line-height:1.75;
+}
+footer .fb{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
+}
+footer .forn{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 12px}
+footer .forn i{height:1px;width:40px;background:rgba(201,207,214,.4)}
+footer .forn b{width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+footer .contact div{margin:3px 0}
+footer .socials{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+footer .socials a{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid rgba(255,255,255,.32);border-radius:2px;
+  padding:7px 14px;font-size:12.5px;font-weight:600;letter-spacing:.04em;
+  transition:background .18s,border-color .18s;
+}
+footer .socials a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+footer .socials svg{width:15px;height:15px;flex:none;opacity:.9}
+footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC}
+
+.top{
+  position:fixed;right:16px;bottom:16px;z-index:60;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 5px 16px rgba(14,39,73,.4);
+  display:grid;place-items:center;font-size:17px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.top.show{opacity:1;pointer-events:auto}
+
+@media (min-width:640px){
+  main{padding:6px 28px 52px}
+  .nm{font-size:17px}
+  .row{padding:12px 0}
+}
+@media print{
+  .bar,.top{display:none}
+  body{background:#fff}
+  section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal" id="seal"></div>
+  <h1 class="brand">Maisel Kutaisi</h1>
+  <p class="tagline" data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></p>
+</header>
+
+<nav class="bar">
+  <div class="bar-inner">
+    <div class="mini">Maisel Kutaisi</div>
+    <div class="langs" role="group" aria-label="Language / ენა">
+      <button type="button" id="btn-ka" aria-pressed="true" aria-label="ქართული" title="ქართული">
+        <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="300" height="200" fill="#fff"/>
+          <g fill="#FF0000">
+            <rect x="130" y="0" width="40" height="200"/>
+            <rect x="0" y="80" width="300" height="40"/>
+            <path d="M58,27h14v16h16v14H72v16H58V57H42V43h16z"/>
+            <path d="M228,27h14v16h16v14h-16v16h-14V57h-16V43h16z"/>
+            <path d="M58,127h14v16h16v14H72v16H58v-16H42v-14h16z"/>
+            <path d="M228,127h14v16h16v14h-16v16h-14v-16h-16v-14h16z"/>
+          </g>
+        </svg>
+      </button>
+      <button type="button" id="btn-en" aria-pressed="false" aria-label="English" title="English">
+        <svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <clipPath id="uk-diag"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-diag)" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</nav>
+
+<main id="menu"></main>
+
+<footer>
+  <div class="fb">Maisel Kutaisi</div>
+  <div class="forn"><i></i><b></b><i></i></div>
+  <div data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></div>
+  <div class="contact" id="contact"></div>
+  <div class="fine" data-ka="ფასები მოცემულია ლარში" data-en="All prices in Georgian Lari"></div>
+</footer>
+
+<button class="top" id="top" aria-label="Back to top">&uarr;</button>
+
+<script src="menu-data.js"></script>
+<script>
+/* ------------------------------------------------------------------
+   CONTACT DETAILS - fill these in, empty values are simply not shown.
+   ------------------------------------------------------------------ */
+var SITE = {
+  addressKa: "გალაკტიონ ტაბიძის ქ. N13, ქუთაისი 4600",
+  addressEn: "13 Galaktion Tabidze St, Kutaisi 4600",
+  phone:     "+995 596 70 07 00",
+  hoursKa:   "",              // e.g. "ყოველდღე 10:00 - 01:00"
+  hoursEn:   "",              // e.g. "Daily 10:00 - 01:00"
+  maps:      "https://www.google.com/maps/place/?cid=1479512363381335002",
+  facebook:  "https://www.facebook.com/maiselkutaisi",
+  instagram: "https://www.instagram.com/maisel_kutaisi/",
+  review:    "https://www.google.com/maps/place//data=!4m3!3m2!1s0x405c8d87f0544bd1:0x148848a7dc24a3da!12e1"
+};
+
+(function(){
+  var lang = "ka";
+  try { lang = localStorage.getItem("mk-lang") || "ka"; } catch(e){}
+
+  var menuEl = document.getElementById("menu");
+  var tabsEl = document.getElementById("tabs");
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function priceHTML(pairs){
+    return pairs.map(function(pair){
+      var sz = pair[0] ? '<span class="sz">' + esc(pair[0]) + '</span>' : '';
+      return '<div>' + sz + '<b>' + esc(pair[1]) + '</b><span class="lari">&#8382;</span></div>';
+    }).join("");
+  }
+
+  var html = "", tabs = "";
+  MENU.forEach(function(sec){
+    tabs += '<a href="#' + sec.id + '" data-jump="' + sec.id + '">'
+          +   '<span data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></span>'
+          + '</a>';
+    html += '<section id="' + sec.id + '">'
+          +   '<div class="head">'
+          +     '<div class="orn"><i></i><b></b><i></i></div>'
+          +     '<h2 data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></h2>'
+          +   '</div>'
+          +   '<div class="list">';
+    sec.items.forEach(function(it){
+      var note = (it.nka || it.nen)
+        ? '<small data-ka="' + esc(it.nka || it.nen) + '" data-en="' + esc(it.nen || it.nka) + '"></small>'
+        : '';
+      html += '<div class="row">'
+            +   '<div class="nm"><span data-ka="' + esc(it.ka) + '" data-en="' + esc(it.en) + '"></span>' + note + '</div>'
+            +   '<div class="pr">' + priceHTML(it.p) + '</div>'
+            + '</div>';
+    });
+    html += '</div></section>';
+  });
+  menuEl.innerHTML = html;
+  tabsEl.innerHTML = tabs;
+
+  function applyLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    var nodes = document.querySelectorAll("[data-ka]");
+    for (var i = 0; i < nodes.length; i++){
+      nodes[i].innerHTML = nodes[i].getAttribute("data-" + l) || "";
+    }
+    document.getElementById("btn-ka").setAttribute("aria-pressed", l === "ka");
+    document.getElementById("btn-en").setAttribute("aria-pressed", l === "en");
+    try { localStorage.setItem("mk-lang", l); } catch(e){}
+  }
+  document.getElementById("btn-ka").onclick = function(){ applyLang("ka"); };
+  document.getElementById("btn-en").onclick = function(){ applyLang("en"); };
+  applyLang(lang);
+
+  // contact block: only the fields that were filled in
+  (function(){
+    var c = "";
+    if (SITE.addressKa || SITE.addressEn){
+      var addr = '<span data-ka="' + esc(SITE.addressKa || SITE.addressEn) + '" data-en="' + esc(SITE.addressEn || SITE.addressKa) + '"></span>';
+      c += '<div>' + (SITE.maps
+            ? '<a href="' + esc(SITE.maps) + '" target="_blank" rel="noopener">' + addr + '</a>'
+            : addr) + '</div>';
+    }
+    if (SITE.phone)
+      c += '<div><a href="tel:' + esc(SITE.phone.replace(/[^+\d]/g, "")) + '">' + esc(SITE.phone) + '</a></div>';
+    if (SITE.hoursKa || SITE.hoursEn)
+      c += '<div data-ka="' + esc(SITE.hoursKa || SITE.hoursEn) + '" data-en="' + esc(SITE.hoursEn || SITE.hoursKa) + '"></div>';
+
+    var s = "";
+    if (SITE.facebook)
+      s += '<a href="' + esc(SITE.facebook) + '" target="_blank" rel="noopener">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.93 8.44-9.94z"/></svg>'
+         + '<span>Facebook</span></a>';
+    if (SITE.instagram)
+      s += '<a href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.29A6.55 6.55 0 1 0 18.55 12 6.55 6.55 0 0 0 12 5.45zm0 10.8A4.25 4.25 0 1 1 16.25 12 4.25 4.25 0 0 1 12 16.25zm6.81-10.98a1.53 1.53 0 1 1-1.53-1.53 1.53 1.53 0 0 1 1.53 1.53z"/></svg>'
+         + '<span>Instagram</span></a>';
+    if (SITE.review)
+      s += '<a href="' + esc(SITE.review) + '" target="_blank" rel="noopener" '
+         + 'data-ka-label="შეაფასეთ Google-ზე" data-en-label="Review us on Google">'
+         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 2 2.9 6.26 6.85.74-5.1 4.6 1.42 6.72L12 16.9 5.93 20.3l1.42-6.7-5.1-4.6 6.85-.74z"/></svg>'
+         + '<span data-ka="შეფასება" data-en="Review"></span></a>';
+    if (s) c += '<div class="socials">' + s + '</div>';
+
+    document.getElementById("contact").innerHTML = c;
+    applyLang(lang); // this block was added after the first pass
+  })();
+
+  /* ---- smooth scrolling + the tab strip following along ---- */
+  var links = {};
+  Array.prototype.forEach.call(tabsEl.querySelectorAll("a"), function(a){ links[a.dataset.jump] = a; });
+
+  var navLock = 0; // while a tap-driven scroll is in flight, the strip stays put
+
+  function setActive(id, autoCentre){
+    for (var k in links) links[k].classList.remove("on");
+    var a = links[id];
+    if (!a) return;
+    a.classList.add("on");
+    if (autoCentre) a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+  }
+
+  tabsEl.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-jump]");
+    if (!a) return;
+    e.preventDefault();
+    var id = a.dataset.jump;
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    navLock = Date.now() + 900;
+    setActive(id, false);
+    a.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+
+    var bar = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bar"), 10) || 96;
+    var y = target.getBoundingClientRect().top + window.pageYOffset - bar;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    history.replaceState(null, "", "#" + id);
+  });
+
+  if (window.IntersectionObserver){
+    var io = new IntersectionObserver(function(entries){
+      if (Date.now() < navLock) return;
+      entries.forEach(function(en){
+        if (en.isIntersecting) setActive(en.target.id, true);
+      });
+    }, { rootMargin: "-" + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--bar"),10) + 10) + "px 0px -68% 0px", threshold: 0 });
+    Array.prototype.forEach.call(document.querySelectorAll("section"), function(s){ io.observe(s); });
+  }
+
+  // back to top: only while scrolling up, so it never covers a price
+  var topBtn = document.getElementById("top");
+  topBtn.onclick = function(){ window.scrollTo({top:0, behavior:"smooth"}); };
+  var lastY = window.scrollY;
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if (Math.abs(y - lastY) > 4){
+      topBtn.classList.toggle("show", y < lastY && y > 700);
+      lastY = y;
+    }
+  }, {passive:true});
+
+  // real logo if present, drawn seal as a fallback
+  var seal = document.getElementById("seal");
+  var probe = new Image();
+  probe.onload = function(){
+    seal.innerHTML = '<img src="logo.png" width="700" height="584" alt="Maisel\'s Weisse aus Bayreuth">';
+  };
+  probe.onerror = function(){
+    seal.className = "seal fallback";
+    seal.innerHTML =
+      '<svg viewBox="0 0 120 120" width="112" height="112" role="img" aria-label="Maisel Kutaisi">'
+      + '<circle cx="60" cy="60" r="57" fill="#fff" stroke="#C9CFD6" stroke-width="4"/>'
+      + '<circle cx="60" cy="60" r="48" fill="none" stroke="#16386B" stroke-width="2"/>'
+      + '<text x="60" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#16386B">MK</text>'
+      + '</svg>';
+  };
+  probe.src = "logo.png";
+})();
+</script>
+</body>
+</html>

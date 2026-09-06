@@ -7,12 +7,23 @@ Maisel's Weisse label, plus the QR code and print-ready table cards.
 
 | File | What it is |
 |---|---|
-| `index.html` | The menu page. Layout, styling and the `SITE` contact config. |
-| `menu-data.js` | Every item and price. **This is the only file you edit day to day.** |
+| `menu/index.html` | The menu page. Layout, styling and the `SITE` contact config. |
+| `menu/menu-data.js` | Every item and price. **This is the only file you edit day to day.** |
+| `menu/logo.png` | The Maisel's Weisse label, transparent background. |
+| `index.html` | Root placeholder that forwards to `menu/`. Replace it when a real homepage exists. |
 | `make-qr.py` | Generates `qr.svg` + `qr.png` from the live URL. |
 | `card.html` | A4 sheet of four A6 table cards with the QR, ready to print and cut. |
-| `logo.png` | The Maisel's Weisse label, transparent background, used on the page and the cards. |
-| `logo-source.png` | Full-resolution original. `logo.png` is generated from it. |
+| `logo-source.png` | Full-resolution original. `menu/logo.png` is generated from it. |
+
+## Why the menu lives under `/menu/`
+
+The QR points at `/menu/`, never at the root. That way a real homepage can be
+built at the root later without changing the menu's address, so printed table
+cards keep working forever.
+
+**If you ever move the site to another platform (Wix, WordPress, an agency),
+tell them the `/menu` route must keep serving this menu, or redirect to it.**
+Losing that route kills every printed QR code.
 
 ## Changing a price or an item
 
@@ -65,4 +76,4 @@ the middle or after normal wear on a table.
 python -m http.server 8787
 ```
 
-Then open http://127.0.0.1:8787/
+Then open http://127.0.0.1:8787/ - the root forwards to /menu/
