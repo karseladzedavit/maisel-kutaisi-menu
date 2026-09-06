@@ -61,7 +61,7 @@ Any field left as `""` is simply not shown.
 
 ```bash
 python -m pip install segno
-python make-qr.py https://YOUR-LIVE-URL
+python make-qr.py https://maiselkutaisi.com/menu/
 ```
 
 Then open `card.html` and print it (A4, no margins, background graphics on).
