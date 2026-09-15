@@ -159,6 +159,118 @@ section:first-child .head{margin-top:26px}
 .pr .sz{font-size:10.5px;color:var(--muted);letter-spacing:.06em;margin-right:6px;text-transform:uppercase}
 .pr .lari{font-size:11.5px;color:var(--gold);margin-left:3px}
 
+/* ---------------- calculator ---------------- */
+.padd{
+  display:block;width:100%;text-align:right;
+  background:none;border:0;padding:2px 0 2px 8px;margin:0;
+  font:inherit;color:inherit;cursor:pointer;border-radius:3px;
+  -webkit-tap-highlight-color:transparent;
+}
+.padd .plus{
+  display:inline-block;width:15px;margin-left:7px;
+  font-family:"Noto Sans Georgian",sans-serif;font-size:14px;font-weight:600;
+  color:#B9B2A0;line-height:1;
+}
+.padd:active{background:rgba(199,154,62,.16)}
+.padd.hit .plus{color:var(--gold);transform:scale(1.35)}
+.padd .plus{transition:color .2s,transform .2s}
+
+#hint{
+  margin:10px 0 0;padding:9px 12px;text-align:center;
+  border:1px dashed var(--rule);border-radius:3px;
+  font-size:12.5px;color:var(--muted);letter-spacing:.01em;
+}
+#hint b{color:var(--navy);font-weight:600}
+#hint button{
+  border:0;background:none;color:var(--muted);cursor:pointer;
+  font:inherit;text-decoration:underline;margin-left:8px;padding:0;
+}
+
+#bask{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:var(--navy);color:#fff;
+  box-shadow:0 -4px 18px rgba(8,22,45,.3);
+  transform:translateY(110%);transition:transform .25s ease;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+#bask.show{transform:none}
+#bask .inner{
+  max-width:var(--maxw);margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:12px;cursor:pointer;
+}
+#bask .cnt{
+  font-size:12.5px;color:#A9C3E4;letter-spacing:.05em;flex:1;text-align:left;
+}
+#bask .sum{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;
+}
+#bask .sum span{font-size:13px;color:var(--gold);margin-left:3px}
+#bask .chev{font-size:13px;color:#A9C3E4}
+body.has-bask footer{padding-bottom:104px}
+body.has-bask .top{bottom:82px}
+
+#sheet{
+  position:fixed;inset:0;z-index:80;display:none;
+}
+#sheet.open{display:block}
+#sheet .scrim{position:absolute;inset:0;background:rgba(10,22,42,.55)}
+#sheet .panel{
+  position:absolute;left:0;right:0;bottom:0;
+  max-height:82vh;display:flex;flex-direction:column;
+  background:var(--paper);border-radius:14px 14px 0 0;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+#sheet .ph{
+  padding:16px 20px 12px;border-bottom:1px solid var(--rule);text-align:center;
+}
+#sheet .ph h3{
+  margin:0;font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:19px;font-weight:700;color:var(--navy);letter-spacing:.04em;
+}
+#sheet .ph p{margin:6px 0 0;font-size:12px;color:var(--muted);letter-spacing:.01em}
+#sheet .plist{overflow-y:auto;padding:4px 20px;flex:1}
+#sheet .brow{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 0;border-bottom:1px solid rgba(216,210,196,.6);
+}
+#sheet .brow:last-child{border-bottom:0}
+#sheet .bn{
+  flex:1;min-width:0;font-family:"Noto Serif Georgian",Georgia,serif;font-size:15px;
+}
+#sheet .bn i{
+  display:block;font-style:normal;font-family:"Noto Sans Georgian",sans-serif;
+  font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;
+}
+#sheet .qty{display:flex;align-items:center;gap:2px;flex:none}
+#sheet .qty button{
+  width:30px;height:30px;border:1px solid var(--rule);background:#fff;
+  border-radius:3px;font:inherit;font-size:17px;line-height:1;
+  color:var(--navy);cursor:pointer;
+}
+#sheet .qty span{
+  min-width:26px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums;
+}
+#sheet .bl{
+  flex:none;min-width:62px;text-align:right;font-weight:700;color:var(--navy);
+  font-family:"Noto Serif Georgian",Georgia,serif;font-variant-numeric:tabular-nums;
+}
+#sheet .pf{border-top:1px solid var(--rule);padding:14px 20px 18px}
+#sheet .tot{
+  display:flex;align-items:baseline;justify-content:space-between;
+  font-family:"Noto Serif Georgian",Georgia,serif;margin-bottom:12px;
+}
+#sheet .tot b{font-size:23px;color:var(--navy);font-variant-numeric:tabular-nums}
+#sheet .tot b span{font-size:14px;color:var(--gold);margin-left:3px}
+#sheet .acts{display:flex;gap:9px}
+#sheet .acts button{
+  flex:1;padding:11px;border-radius:3px;font:inherit;font-size:14px;
+  font-weight:600;cursor:pointer;letter-spacing:.03em;
+}
+#sheet .clr{border:1px solid var(--rule);background:#fff;color:var(--muted)}
+#sheet .cls{border:0;background:var(--navy);color:#fff}
+#sheet .empty{padding:32px 20px;text-align:center;color:var(--muted);font-size:14px}
+
 /* ---------------- footer ---------------- */
 footer{
   background:var(--navy-deep);color:#B9CCE6;text-align:center;
@@ -200,7 +312,8 @@ footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC
   .row{padding:12px 0}
 }
 @media print{
-  .bar,.top{display:none}
+  .bar,.top,#bask,#sheet,#hint,.padd .plus{display:none}
+  .padd{padding:0}
   body{background:#fff}
   section{break-inside:avoid}
 }
@@ -258,6 +371,35 @@ footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC
 
 <button class="top" id="top" aria-label="Back to top">&uarr;</button>
 
+<div id="bask" aria-live="polite">
+  <div class="inner" id="baskOpen" role="button" tabindex="0">
+    <span class="cnt" id="baskCnt"></span>
+    <span class="sum" id="baskSum">0.00<span>&#8382;</span></span>
+    <span class="chev">&#9650;</span>
+  </div>
+</div>
+
+<div id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="scrim" id="sheetScrim"></div>
+  <div class="panel">
+    <div class="ph">
+      <h3 id="sheetTitle" data-ka="კალკულატორი" data-en="Calculator"></h3>
+      <p data-ka="ეს არ არის შეკვეთა - მხოლოდ ჯამს ითვლის" data-en="This is not an order - it only adds up prices"></p>
+    </div>
+    <div class="plist" id="sheetList"></div>
+    <div class="pf">
+      <div class="tot">
+        <span data-ka="ჯამი" data-en="Total"></span>
+        <b id="sheetTot">0.00<span>&#8382;</span></b>
+      </div>
+      <div class="acts">
+        <button type="button" class="clr" id="sheetClear" data-ka="გასუფთავება" data-en="Clear"></button>
+        <button type="button" class="cls" id="sheetClose" data-ka="დახურვა" data-en="Close"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="menu-data.js"></script>
 <script>
 /* ------------------------------------------------------------------
@@ -284,10 +426,18 @@ var SITE = {
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
-  function priceHTML(pairs){
-    return pairs.map(function(pair){
+  // every price is its own tappable entry in the calculator
+  var ITEMS = {};
+
+  function priceHTML(pairs, it, id0){
+    return pairs.map(function(pair, pi){
+      var id = id0 + ":" + pi;
+      ITEMS[id] = { p: parseFloat(pair[1]), sz: pair[0], ka: it.ka, en: it.en };
       var sz = pair[0] ? '<span class="sz">' + esc(pair[0]) + '</span>' : '';
-      return '<div>' + sz + '<b>' + esc(pair[1]) + '</b><span class="lari">&#8382;</span></div>';
+      return '<button type="button" class="padd" data-add="' + id + '">'
+           +   sz + '<b>' + esc(pair[1]) + '</b><span class="lari">&#8382;</span>'
+           +   '<span class="plus" aria-hidden="true">+</span>'
+           + '</button>';
     }).join("");
   }
 
@@ -302,13 +452,13 @@ var SITE = {
           +     '<h2 data-ka="' + esc(sec.ka) + '" data-en="' + esc(sec.en) + '"></h2>'
           +   '</div>'
           +   '<div class="list">';
-    sec.items.forEach(function(it){
+    sec.items.forEach(function(it, ii){
       var note = (it.nka || it.nen)
         ? '<small data-ka="' + esc(it.nka || it.nen) + '" data-en="' + esc(it.nen || it.nka) + '"></small>'
         : '';
       html += '<div class="row">'
             +   '<div class="nm"><span data-ka="' + esc(it.ka) + '" data-en="' + esc(it.en) + '"></span>' + note + '</div>'
-            +   '<div class="pr">' + priceHTML(it.p) + '</div>'
+            +   '<div class="pr">' + priceHTML(it.p, it, sec.id + ":" + ii) + '</div>'
             + '</div>';
     });
     html += '</div></section>';
@@ -326,7 +476,9 @@ var SITE = {
     document.getElementById("btn-ka").setAttribute("aria-pressed", l === "ka");
     document.getElementById("btn-en").setAttribute("aria-pressed", l === "en");
     try { localStorage.setItem("mk-lang", l); } catch(e){}
+    afterLang();
   }
+  var afterLang = function(){}; // the calculator hooks in here once it exists
   document.getElementById("btn-ka").onclick = function(){ applyLang("ka"); };
   document.getElementById("btn-en").onclick = function(){ applyLang("en"); };
   applyLang(lang);
@@ -363,6 +515,122 @@ var SITE = {
 
     document.getElementById("contact").innerHTML = c;
     applyLang(lang); // this block was added after the first pass
+  })();
+
+  /* ---- calculator: tap a price, see the running total ---- */
+  (function(){
+    var basket = {};
+    try { basket = JSON.parse(localStorage.getItem("mk-basket") || "{}") || {}; } catch(e){ basket = {}; }
+    // drop anything whose item no longer exists (menu edited since last visit)
+    Object.keys(basket).forEach(function(id){ if (!ITEMS[id]) delete basket[id]; });
+
+    var bask     = document.getElementById("bask");
+    var baskCnt  = document.getElementById("baskCnt");
+    var baskSum  = document.getElementById("baskSum");
+    var sheet    = document.getElementById("sheet");
+    var sheetList= document.getElementById("sheetList");
+    var sheetTot = document.getElementById("sheetTot");
+
+    function save(){
+      try { localStorage.setItem("mk-basket", JSON.stringify(basket)); } catch(e){}
+    }
+    function ids(){ return Object.keys(basket); }
+    function count(){ return ids().reduce(function(n,id){ return n + basket[id]; }, 0); }
+    function total(){ return ids().reduce(function(s,id){ return s + ITEMS[id].p * basket[id]; }, 0); }
+    function money(n){ return n.toFixed(2) + '<span>&#8382;</span>'; }
+    function nameOf(it){ return lang === "ka" ? it.ka : it.en; }
+
+    function render(){
+      var n = count();
+      document.body.classList.toggle("has-bask", n > 0);
+      bask.classList.toggle("show", n > 0);
+      if (n > 0){
+        baskCnt.textContent = lang === "ka"
+          ? n + " პოზიცია"
+          : n + (n === 1 ? " item" : " items");
+        baskSum.innerHTML = money(total());
+      }
+      sheetTot.innerHTML = money(total());
+
+      if (!ids().length){
+        sheetList.innerHTML = '<div class="empty">'
+          + (lang === "ka" ? "ჯერ არაფერია დამატებული" : "Nothing added yet")
+          + '</div>';
+        return;
+      }
+      sheetList.innerHTML = ids().map(function(id){
+        var it = ITEMS[id], q = basket[id];
+        return '<div class="brow">'
+          +   '<div class="bn">' + esc(nameOf(it))
+          +     (it.sz ? '<i>' + esc(it.sz) + '</i>' : '')
+          +   '</div>'
+          +   '<div class="qty">'
+          +     '<button type="button" data-dec="' + id + '" aria-label="-">&minus;</button>'
+          +     '<span>' + q + '</span>'
+          +     '<button type="button" data-inc="' + id + '" aria-label="+">+</button>'
+          +   '</div>'
+          +   '<div class="bl">' + (it.p * q).toFixed(2) + '</div>'
+          + '</div>';
+      }).join("");
+    }
+    afterLang = render; // language switch re-renders the basket text
+
+    function bump(id, d){
+      basket[id] = (basket[id] || 0) + d;
+      if (basket[id] <= 0) delete basket[id];
+      save(); render();
+    }
+
+    // tapping a price adds one
+    menuEl.addEventListener("click", function(e){
+      var btn = e.target.closest ? e.target.closest("[data-add]") : null;
+      if (!btn) return;
+      bump(btn.getAttribute("data-add"), 1);
+      btn.classList.add("hit");
+      setTimeout(function(){ btn.classList.remove("hit"); }, 320);
+      hideHint();
+    });
+
+    // the panel
+    function openSheet(){ render(); sheet.classList.add("open"); }
+    function closeSheet(){ sheet.classList.remove("open"); }
+    document.getElementById("baskOpen").addEventListener("click", openSheet);
+    document.getElementById("sheetScrim").addEventListener("click", closeSheet);
+    document.getElementById("sheetClose").addEventListener("click", closeSheet);
+    document.getElementById("sheetClear").addEventListener("click", function(){
+      basket = {}; save(); render(); closeSheet();
+    });
+    sheetList.addEventListener("click", function(e){
+      var t = e.target.closest ? e.target.closest("[data-inc],[data-dec]") : null;
+      if (!t) return;
+      var inc = t.getAttribute("data-inc");
+      bump(inc || t.getAttribute("data-dec"), inc ? 1 : -1);
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") closeSheet();
+    });
+
+    // one-time hint, so the tap-to-add is discoverable
+    var hint = null;
+    function hideHint(){
+      if (!hint) return;
+      hint.remove(); hint = null;
+      try { localStorage.setItem("mk-hint", "1"); } catch(e){}
+    }
+    var seen = "0";
+    try { seen = localStorage.getItem("mk-hint") || "0"; } catch(e){}
+    if (seen !== "1" && !ids().length){
+      hint = document.createElement("div");
+      hint.id = "hint";
+      hint.innerHTML =
+        '<span data-ka="შეეხე ფასს, რომ დაამატო <b>კალკულატორში</b>" '
+        + 'data-en="Tap a price to add it to the <b>calculator</b>"></span>'
+        + '<button type="button" data-ka="დახურვა" data-en="Dismiss"></button>';
+      menuEl.insertBefore(hint, menuEl.firstChild);
+      hint.querySelector("button").addEventListener("click", hideHint);
+    }
+
+    applyLang(lang); // paints the new nodes and runs the first render
   })();
 
   /* ---- smooth scrolling + the tab strip following along ---- */
