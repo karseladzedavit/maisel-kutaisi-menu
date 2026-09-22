@@ -300,28 +300,35 @@ body.has-bask .top{bottom:82px}
 
 /* ---------------- footer ---------------- */
 footer{
-  background:var(--navy-deep);color:#B9CCE6;text-align:center;
-  padding:30px 22px 38px;font-size:13.5px;line-height:1.75;
+  text-align:center;padding:30px 16px 34px;
+  font-size:13.5px;line-height:1.75;
+  border-top:3px solid var(--navy);
+}
+/* cream card on the tablecloth, same idea as the header */
+footer .fcard{
+  max-width:420px;margin:0 auto;padding:22px 20px 18px;
+  background:var(--paper);color:var(--muted);border-radius:4px;
+  box-shadow:0 6px 18px rgba(8,30,60,.28);
 }
 footer .fb{
   font-family:"Noto Serif Georgian",Georgia,serif;
-  color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
+  color:var(--navy);font-size:20px;font-weight:700;letter-spacing:.02em;
 }
 footer .forn{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 12px}
-footer .forn i{height:1px;width:40px;background:rgba(201,207,214,.4)}
+footer .forn i{height:1px;width:40px;background:var(--rule)}
 footer .forn b{width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
-footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+footer a{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(22,56,107,.35)}
 footer .contact div{margin:3px 0}
 footer .socials{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 footer .socials a{
   display:inline-flex;align-items:center;gap:7px;
-  border:1px solid rgba(255,255,255,.32);border-radius:2px;
+  background:var(--navy);color:#fff;border:1px solid var(--navy);border-radius:3px;
   padding:7px 14px;font-size:12.5px;font-weight:600;letter-spacing:.04em;
-  transition:background .18s,border-color .18s;
+  transition:background .18s;
 }
-footer .socials a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+footer .socials a:hover{background:var(--navy-deep)}
 footer .socials svg{width:15px;height:15px;flex:none;opacity:.9}
-footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC}
+footer .fine{margin-top:18px;font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
 
 .top{
   position:fixed;right:16px;bottom:16px;z-index:60;
@@ -390,12 +397,14 @@ footer .fine{margin-top:20px;font-size:11.5px;letter-spacing:.06em;color:#7E97BC
 
 <main id="menu"></main>
 
-<footer>
-  <div class="fb">Maisel Kutaisi</div>
-  <div class="forn"><i></i><b></b><i></i></div>
-  <div data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></div>
-  <div class="contact" id="contact"></div>
-  <div class="fine" data-ka="ფასები მოცემულია ლარში" data-en="All prices in Georgian Lari"></div>
+<footer class="gingham">
+  <div class="fcard">
+    <div class="fb">Maisel Kutaisi</div>
+    <div class="forn"><i></i><b></b><i></i></div>
+    <div data-ka="ბავარიული ლუდი &middot; ქართული სამზარეულო" data-en="Bavarian Beer &middot; Georgian Kitchen"></div>
+    <div class="contact" id="contact"></div>
+    <div class="fine" data-ka="ფასები მოცემულია ლარში" data-en="All prices in Georgian Lari"></div>
+  </div>
 </footer>
 
 <button class="top" id="top" aria-label="Back to top">&uarr;</button>
