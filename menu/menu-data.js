@@ -1,6 +1,7 @@
 /* Maisel Kutaisi - menu data.
    Edit items and prices here; the page rebuilds itself from this file.
-   p: [["size","price"], ...]  - a single pair with an empty size shows just the price. */
+   p: [["size","price"], ...]  - a single pair with an empty size shows just the price.
+   step:5 on a section makes each tap add 5 (used for khinkali, usually ordered 20-30 at a time). */
 const MENU = [
 {id:"draft", ka:"ჩამოსასხმელი ლუდი", en:"Draft Beer", items:[
  {ka:"მაისელს ვაისი ორიგინალი", en:"Maisel's Weisse Original", nka:"გაუფილტრავი", nen:"Unfiltered", p:[["1L","16.90"],["0.5L","8.90"],["0.3L","5.90"]]},
@@ -46,7 +47,7 @@ const MENU = [
  {ka:"სბორნაია სალიანკა", en:"Solyanka Soup", p:[["","16.50"]]},
  {ka:"სოკოს კრემსუპი", en:"Mushroom Cream Soup", p:[["","12.50"]]}
 ]},
-{id:"khinkali", ka:"ხინკალი", en:"Khinkali", items:[
+{id:"khinkali", ka:"ხინკალი", en:"Khinkali", step:5, items:[
  {ka:"ხინკალი ქალაქური", en:"Khinkali Kalakuri", p:[["","1.60"]]},
  {ka:"ხინკალი მთიულური", en:"Khinkali Mtiuluri", p:[["","1.60"]]},
  {ka:"ხინკალი სულგუნით", en:"Khinkali with Sulguni Cheese", p:[["","1.80"]]},

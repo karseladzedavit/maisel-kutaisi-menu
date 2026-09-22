@@ -171,6 +171,7 @@ section:first-child .head{margin-top:26px}
   font-family:"Noto Sans Georgian",sans-serif;font-size:14px;font-weight:600;
   color:#B9B2A0;line-height:1;
 }
+.padd .plus.many{width:auto;min-width:15px;font-size:12px;color:#B08A3A}
 .padd:active{background:rgba(199,154,62,.16)}
 .padd.hit .plus{color:var(--gold);transform:scale(1.35)}
 .padd .plus{transition:color .2s,transform .2s}
@@ -248,9 +249,16 @@ body.has-bask .top{bottom:82px}
   border-radius:3px;font:inherit;font-size:17px;line-height:1;
   color:var(--navy);cursor:pointer;
 }
-#sheet .qty span{
-  min-width:26px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums;
+#sheet .qty input{
+  width:46px;height:30px;margin:0 3px;padding:0;
+  border:1px solid var(--rule);border-radius:3px;background:#fff;
+  text-align:center;font:inherit;font-size:16px;font-weight:600;
+  color:var(--ink);font-variant-numeric:tabular-nums;
+  -moz-appearance:textfield;appearance:textfield;
 }
+#sheet .qty input::-webkit-outer-spin-button,
+#sheet .qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#sheet .qty input:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
 #sheet .bl{
   flex:none;min-width:62px;text-align:right;font-weight:700;color:var(--navy);
   font-family:"Noto Serif Georgian",Georgia,serif;font-variant-numeric:tabular-nums;
@@ -429,14 +437,14 @@ var SITE = {
   // every price is its own tappable entry in the calculator
   var ITEMS = {};
 
-  function priceHTML(pairs, it, id0){
+  function priceHTML(pairs, it, id0, step){
     return pairs.map(function(pair, pi){
       var id = id0 + ":" + pi;
-      ITEMS[id] = { p: parseFloat(pair[1]), sz: pair[0], ka: it.ka, en: it.en };
+      ITEMS[id] = { p: parseFloat(pair[1]), sz: pair[0], ka: it.ka, en: it.en, step: step };
       var sz = pair[0] ? '<span class="sz">' + esc(pair[0]) + '</span>' : '';
       return '<button type="button" class="padd" data-add="' + id + '">'
            +   sz + '<b>' + esc(pair[1]) + '</b><span class="lari">&#8382;</span>'
-           +   '<span class="plus" aria-hidden="true">+</span>'
+           +   '<span class="plus' + (step > 1 ? ' many' : '') + '" aria-hidden="true">+' + (step > 1 ? step : '') + '</span>'
            + '</button>';
     }).join("");
   }
@@ -458,7 +466,7 @@ var SITE = {
         : '';
       html += '<div class="row">'
             +   '<div class="nm"><span data-ka="' + esc(it.ka) + '" data-en="' + esc(it.en) + '"></span>' + note + '</div>'
-            +   '<div class="pr">' + priceHTML(it.p, it, sec.id + ":" + ii) + '</div>'
+            +   '<div class="pr">' + priceHTML(it.p, it, sec.id + ":" + ii, sec.step || 1) + '</div>'
             + '</div>';
     });
     html += '</div></section>';
@@ -535,13 +543,14 @@ var SITE = {
       try { localStorage.setItem("mk-basket", JSON.stringify(basket)); } catch(e){}
     }
     function ids(){ return Object.keys(basket); }
-    function count(){ return ids().reduce(function(n,id){ return n + basket[id]; }, 0); }
     function total(){ return ids().reduce(function(s,id){ return s + ITEMS[id].p * basket[id]; }, 0); }
     function money(n){ return n.toFixed(2) + '<span>&#8382;</span>'; }
     function nameOf(it){ return lang === "ka" ? it.ka : it.en; }
 
-    function render(){
-      var n = count();
+    // bar + grand total only; safe to call while someone is typing in a field
+    function renderSummary(){
+      // count lines, not pieces: 25 khinkali is one position, not 25
+      var n = ids().length;
       document.body.classList.toggle("has-bask", n > 0);
       bask.classList.toggle("show", n > 0);
       if (n > 0){
@@ -551,7 +560,10 @@ var SITE = {
         baskSum.innerHTML = money(total());
       }
       sheetTot.innerHTML = money(total());
+    }
 
+    function render(){
+      renderSummary();
       if (!ids().length){
         sheetList.innerHTML = '<div class="empty">'
           + (lang === "ka" ? "ჯერ არაფერია დამატებული" : "Nothing added yet")
@@ -566,26 +578,31 @@ var SITE = {
           +   '</div>'
           +   '<div class="qty">'
           +     '<button type="button" data-dec="' + id + '" aria-label="-">&minus;</button>'
-          +     '<span>' + q + '</span>'
+          +     '<input type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="' + MAXQ + '"'
+          +       ' data-q="' + id + '" value="' + q + '" aria-label="' + esc(nameOf(it)) + '">'
           +     '<button type="button" data-inc="' + id + '" aria-label="+">+</button>'
           +   '</div>'
-          +   '<div class="bl">' + (it.p * q).toFixed(2) + '</div>'
+          +   '<div class="bl" data-line="' + id + '">' + (it.p * q).toFixed(2) + '</div>'
           + '</div>';
       }).join("");
     }
     afterLang = render; // language switch re-renders the basket text
 
+    var MAXQ = 999;
+    function stepOf(id){ return (ITEMS[id] && ITEMS[id].step) || 1; }
+
     function bump(id, d){
-      basket[id] = (basket[id] || 0) + d;
+      basket[id] = Math.min(MAXQ, (basket[id] || 0) + d);
       if (basket[id] <= 0) delete basket[id];
       save(); render();
     }
 
-    // tapping a price adds one
+    // tapping a price adds one (or the section's step, e.g. 5 for khinkali)
     menuEl.addEventListener("click", function(e){
       var btn = e.target.closest ? e.target.closest("[data-add]") : null;
       if (!btn) return;
-      bump(btn.getAttribute("data-add"), 1);
+      var id = btn.getAttribute("data-add");
+      bump(id, stepOf(id));
       btn.classList.add("hit");
       setTimeout(function(){ btn.classList.remove("hit"); }, 320);
       hideHint();
@@ -604,7 +621,46 @@ var SITE = {
       var t = e.target.closest ? e.target.closest("[data-inc],[data-dec]") : null;
       if (!t) return;
       var inc = t.getAttribute("data-inc");
-      bump(inc || t.getAttribute("data-dec"), inc ? 1 : -1);
+      var id = inc || t.getAttribute("data-dec");
+      bump(id, inc ? stepOf(id) : -stepOf(id));
+    });
+
+    // typing a quantity: update totals live without rebuilding the list,
+    // otherwise the field would lose focus after every digit
+    sheetList.addEventListener("input", function(e){
+      var f = e.target;
+      if (!f.hasAttribute || !f.hasAttribute("data-q")) return;
+      var id = f.getAttribute("data-q");
+      var n = parseInt(f.value, 10);
+      if (!(n > 0)) return; // empty or 0 mid-typing: wait for them to finish
+      n = Math.min(MAXQ, n);
+      basket[id] = n; save();
+      var line = sheetList.querySelector('[data-line="' + id + '"]');
+      if (line) line.textContent = (ITEMS[id].p * n).toFixed(2);
+      renderSummary();
+    });
+    // when they leave the field: 0 or empty removes the line, anything else is tidied up.
+    // Only rebuild the list when a line goes away: leaving the field by tapping + or -
+    // fires this first, and a rebuild would delete the button mid-tap.
+    sheetList.addEventListener("change", function(e){
+      var f = e.target;
+      if (!f.hasAttribute || !f.hasAttribute("data-q")) return;
+      var id = f.getAttribute("data-q");
+      var n = parseInt(f.value, 10);
+      if (n > 0){
+        n = Math.min(MAXQ, n);
+        basket[id] = n; save();
+        f.value = n;
+        var line = sheetList.querySelector('[data-line="' + id + '"]');
+        if (line) line.textContent = (ITEMS[id].p * n).toFixed(2);
+        renderSummary();
+      } else {
+        delete basket[id]; save(); render();
+      }
+    });
+    // Enter on the phone keyboard just closes the keyboard
+    sheetList.addEventListener("keydown", function(e){
+      if (e.key === "Enter" && e.target.blur) e.target.blur();
     });
     document.addEventListener("keydown", function(e){
       if (e.key === "Escape") closeSheet();
